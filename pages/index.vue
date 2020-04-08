@@ -198,7 +198,14 @@ export default {
   name: 'HomePage',
   head() {
     return {
-      title: 'Home'
+      title: 'Home',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Tracks current COVID19 cases and history in the Philippines'
+        }
+      ]
     }
   },
   components: {
