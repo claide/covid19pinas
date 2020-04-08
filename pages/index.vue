@@ -196,6 +196,11 @@ import ICountUp from 'vue-countup-v2'
 
 export default {
   name: 'HomePage',
+  head() {
+    return {
+      title: 'Home'
+    }
+  },
   components: {
     Card,
     SimpleCard,

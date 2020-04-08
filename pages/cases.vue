@@ -54,6 +54,11 @@ import SimpleCard from '@/components/SimpleCard'
 import CaseOutside from '@/components/CaseOutside'
 export default {
   name: 'Cases',
+  head() {
+    return {
+      title: 'Cases'
+    }
+  },
   components: { SimpleCard, CaseOutside },
   data() {
     return {

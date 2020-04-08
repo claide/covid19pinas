@@ -63,6 +63,11 @@ import SimpleCard from '@/components/SimpleCard'
 
 export default {
   name: 'About',
+  head() {
+    return {
+      title: 'About'
+    }
+  },
   components: { SimpleCard },
   data() {
     return {

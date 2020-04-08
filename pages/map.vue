@@ -38,6 +38,12 @@ let L = { icon() {} }
 if (process.browser) L = require('leaflet')
 
 export default {
+  name: 'Map',
+  head() {
+    return {
+      title: 'Map'
+    }
+  },
   components: { SimpleCard },
   data() {
     return {
@@ -56,9 +62,6 @@ export default {
   },
   mounted() {
     this.getCases()
-    // this.$nextTick(() => {
-    //   this.markerObjects = this.$refs.markersRef.map(ref => ref.mapObject)
-    // })
   },
   methods: {
     getCases() {

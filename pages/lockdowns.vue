@@ -42,6 +42,11 @@ import SimpleCard from '@/components/SimpleCard'
 import Axios from 'axios'
 export default {
   name: 'Lockdowns',
+  head() {
+    return {
+      title: 'Lockdowns'
+    }
+  },
   components: { SimpleCard },
   data() {
     return {

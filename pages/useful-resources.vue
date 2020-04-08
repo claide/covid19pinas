@@ -74,6 +74,11 @@ import News from '@/components/News'
 
 export default {
   name: 'UsefulResources',
+  head() {
+    return {
+      title: 'Useful Resources'
+    }
+  },
   components: { News }
 }
 </script>
