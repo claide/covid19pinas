@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <SimpleCard title="COVID19 cases in Philippines">
-      <div class="field has-text-right">
+      <div class="field has-text-right is-control">
         <b-switch v-model="onPhilippines">Show cases outside Philippines</b-switch>
       </div>
       <div class="is-spacer-sm"></div>

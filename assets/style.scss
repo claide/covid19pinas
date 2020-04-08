@@ -304,6 +304,19 @@ html,body, .footer {
   }
 }
 
+.b-table .table-wrapper.has-mobile-cards tr:not([class*="is-"]) {
+  @media(max-width: 768px) {
+    background: $grey !important;
+  }
+}
+
+.is-control {
+  @media(max-width: 768px) {
+    margin-top: 1em;
+    text-align: left !important;
+  }
+}
+
 // Helpers
 .has-text-white {
   color: $white !important;
