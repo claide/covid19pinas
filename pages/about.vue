@@ -36,6 +36,7 @@
             <input type="hidden" name="business" value="KQ2PKXZKDX2DW" />
             <input type="hidden" name="currency_code" value="PHP" />
             <input
+              @click.prevent="trackDonation"
               type="image"
               src="https://i.ibb.co/Lp9qLkN/donate.png"
               border="0"
@@ -67,6 +68,17 @@ export default {
       title: 'About'
     }
   },
-  components: { SimpleCard }
+  components: { SimpleCard },
+  methods: {
+    trackDonation() {
+      const url = 'https://www.paypal.com/cgi-bin/webscr'
+      this.$ga.query('send', 'event', 'outbound', 'click', url, {
+        transport: 'beacon',
+        hitCallback() {
+          document.location = url
+        }
+      })
+    }
+  }
 }
 </script>

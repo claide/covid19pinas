@@ -21,7 +21,12 @@
         <p>{{ news.content | trunc(255, '...') }}</p>
         <!-- <p>{{ news.content }}</p> -->
         <div class="is-spacer-sm"></div>
-        <a :href="news.url" target="_blank" class="button is-primary">Read more</a>
+        <a
+          :href="news.url"
+          @click.prevent="trackNews"
+          target="_blank"
+          class="button is-primary"
+        >Read more</a>
       </div>
     </div>
   </div>
@@ -55,6 +60,15 @@ export default {
           article => article.content
         )
         this.isLoading = false
+      })
+    },
+    trackNews() {
+      const url = this.news.url
+      this.$ga.query('send', 'event', 'outbound', 'click', url, {
+        transport: 'beacon',
+        hitCallback() {
+          document.location = url
+        }
       })
     }
   }
