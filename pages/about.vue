@@ -1,6 +1,5 @@
 <template>
   <section class="section">
-    <b-loading :is-full-page="isFullPage" :active.sync="isLoading"></b-loading>
     <div class="columns is-centered">
       <div class="column is-8">
         <SimpleCard title="About the website">
@@ -68,11 +67,6 @@ export default {
       title: 'About'
     }
   },
-  components: { SimpleCard },
-  data() {
-    return {
-      isLoading: false
-    }
-  }
+  components: { SimpleCard }
 }
 </script>

@@ -23,8 +23,23 @@ html,body, .footer {
   color: $grey-body;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 100px;
+}
+
 .footer {
   padding: 2em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100px;
 }
 
 .navbar {
