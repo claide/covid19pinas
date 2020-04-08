@@ -49,7 +49,7 @@ export default {
     fetchNews() {
       this.isLoading = true
       Axios.get(
-        `http://newsapi.org/v2/top-headlines?country=ph&category=health&apiKey=1330ba6119944d8087adf9bb44f557df`
+        `https://newsapi.org/v2/top-headlines?country=ph&category=health&apiKey=1330ba6119944d8087adf9bb44f557df`
       ).then(response => {
         this.newsData = response.data.articles.filter(
           article => article.content
