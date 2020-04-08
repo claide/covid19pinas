@@ -1,4 +1,4 @@
-# trackcovid19
+# covid19pinas
 
 > Just another covid19 tracker
 
