@@ -24,7 +24,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '/virus.jpg'
+        content: 'https://covid19pinas.ml/virus.jpg'
       },
       {
         hid: 'og:description',
