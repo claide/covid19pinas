@@ -9,7 +9,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: 'covid19, covid19 ph, covid19 tracker philippines, covid19 tracker ph'},
+      { name: 'keywords', content: 'covid19, covid19 ph, covid19 tracker philippines, covid19 tracker ph' },
       { hid: 'description', name: 'description', content: 'Tracks current COVID19 cases and history in the Philippines' },
       {
         hid: 'og:title',
@@ -57,6 +57,9 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-163137730-1'
+    }]
   ],
   /*
   ** Nuxt.js modules
