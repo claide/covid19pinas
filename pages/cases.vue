@@ -29,10 +29,15 @@
           >{{ props.row.date | moment("MMMM DD, YYYY") }}</b-table-column>
           <b-table-column field="age" label="Age" sortable>{{ props.row.age }}</b-table-column>
           <b-table-column field="gender" label="Gender" sortable>{{ props.row.gender }}</b-table-column>
-          <b-table-column field="nationality" label="Nationality">{{ props.row.nationality }}</b-table-column>
+          <b-table-column
+            field="nationality"
+            label="Nationality"
+            :searchable="true"
+          >{{ props.row.nationality }}</b-table-column>
           <b-table-column
             field="hospital_admitted_to"
             label="Admitted to"
+            :searchable="true"
           >{{ props.row.hospital_admitted_to }}</b-table-column>
           <b-table-column
             field="travel_history"

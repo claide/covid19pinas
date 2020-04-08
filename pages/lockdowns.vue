@@ -17,8 +17,8 @@
         aria-current-label="Current page"
       >
         <template slot-scope="props">
-          <b-table-column field="lgu" label="LGU">{{ props.row.lgu }}</b-table-column>
-          <b-table-column field="region" label="Region">{{ props.row.region }}</b-table-column>
+          <b-table-column field="lgu" label="LGU" :searchable="true">{{ props.row.lgu }}</b-table-column>
+          <b-table-column field="region" label="Region" :searchable="true">{{ props.row.region }}</b-table-column>
           <b-table-column
             field="start_date"
             label="Date started"
