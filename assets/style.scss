@@ -124,6 +124,11 @@ html,body, .footer {
         height: 100%;
         width: 100%;
 
+        @media(max-width: 767px) {
+          height: 120px;
+          top: 2.5em;
+        }
+
         img {
           height: 100%;
           object-fit: cover;

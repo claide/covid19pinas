@@ -1,10 +1,10 @@
 <template>
   <div>
-    <b-loading :is-full-page="isFullPage" :active.sync="isLoading"></b-loading>
     <div class="content">
       <h3 class="has-text-body">COVID19 Latest News</h3>
     </div>
     <div v-for="news in newsData" :key="newsData.title" class="card is-news is-horizontal">
+      <b-loading :is-full-page="false" :active.sync="isLoading"></b-loading>
       <div class="card-image">
         <figure class="image">
           <img :src="news.urlToImage" />
