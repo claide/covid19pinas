@@ -317,6 +317,10 @@ html,body, .footer {
   }
 }
 
+.is-icon-nav {
+  fill: $primary;
+}
+
 // Helpers
 .has-text-white {
   color: $white !important;
