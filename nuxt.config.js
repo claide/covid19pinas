@@ -52,6 +52,7 @@ export default {
   plugins: [
     '~/plugins/vue-moment.js',
     { src: '~plugins/vue-chart.js', ssr: false },
+    { src: '~plugins/leaflet.js', ssr: false },
   ],
   /*
   ** Nuxt.js dev-modules

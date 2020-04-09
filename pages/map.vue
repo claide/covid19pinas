@@ -2,16 +2,17 @@
   <section class="section">
     <SimpleCard title="Map">
       <div class="is-spacer-sm"></div>
-      <div id="map-wrap" style="height: 90vh">
-        <no-ssr>
-          <b-loading :active.sync="isLoading"></b-loading>
-          <l-map :zoom="6" :center="[14.599512,120.984222]">
-            <l-tile-layer :url="titleLayer"></l-tile-layer>
-            <l-marker
+      <div id="map-wrap">
+        <client-only>
+          <l-map :zoom="6.21" :center="[11.5029379,121.805921]" style="height: 100%">
+            <l-tile-layer :url="titleLayer" :attribution="attribution"></l-tile-layer>
+            <l-circle
               v-for="c in cases"
-              :icon="icon"
               :key="c.case_no"
               :lat-lng="[c.latitude,c.longitude]"
+              :radius="circle.radius"
+              :color="circle.color"
+              :fillColor="circle.fill"
             >
               <l-popup
                 :content="('<table><tr><td>Age : ' + c.age.toString() + '</td></tr>' +
@@ -23,9 +24,9 @@
                 '<tr><td>Travel history : ' + c.travel_history + '</td></tr></table>'
                 )"
               />
-            </l-marker>
+            </l-circle>
           </l-map>
-        </no-ssr>
+        </client-only>
       </div>
     </SimpleCard>
   </section>
@@ -34,8 +35,7 @@
 <script>
 import SimpleCard from '@/components/SimpleCard'
 import Axios from 'axios'
-let L = { icon() {} }
-if (process.browser) L = require('leaflet')
+import L from 'leaflet'
 
 export default {
   name: 'Map',
@@ -50,8 +50,14 @@ export default {
       isLoading: false,
       isFullPage: true,
       cases: [],
-      titleLayer:
-        'https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png',
+      titleLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      attribution:
+        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      circle: {
+        radius: 30000,
+        color: '#01B075',
+        fill: '#01B075'
+      },
       icon: L.icon({
         iconUrl: require('~/assets/img/dot.png'),
         iconSize: [40, 40],

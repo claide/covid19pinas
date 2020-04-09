@@ -342,6 +342,11 @@ body {
   fill: $primary;
 }
 
+// Map styles
+#map-wrap {
+  height: 700px;
+}
+
 // Helpers
 .has-text-white {
   color: $white !important;
