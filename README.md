@@ -2,6 +2,10 @@
 
 > Just another covid19 tracker
 
+## Website
+
+[https://covid19pinas.ml](https://covid19pinas.ml/)
+
 ## Build Setup
 
 ``` bash
