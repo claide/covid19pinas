@@ -20,6 +20,13 @@
             <li>
               <a
                 class="has-text-green"
+                href="https://github.com/novelcovid/api"
+                target="_blank"
+              >NovelCOVID 19 API</a>
+            </li>
+            <li>
+              <a
+                class="has-text-green"
                 href="https://github.com/sorxrob/coronavirus-ph-api"
                 target="_blank"
               >Coronavirus Ph API</a>
@@ -30,7 +37,10 @@
           </ul>
           <div class="is-spacer-sm"></div>
           <p class="has-text-weight-bold">Show your support</p>
-          <p>Express your support by donating any amount, if you find this website helpful. Your donation can help to upgrade server hosting, domain and site's maintenance.</p>
+          <p>
+            Love the tracker? Express your support by donating any amount. Your donation can help to upgrade server hosting, domain and site's maintenance.
+            <br />Stay safe all!
+          </p>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_donations" />
             <input type="hidden" name="business" value="KQ2PKXZKDX2DW" />
