@@ -1,6 +1,6 @@
 # covid19pinas
 
-> Just another covid19 tracker
+> Just another covid19 tracker for Philippines
 
 ## Website
 
