@@ -1,6 +1,7 @@
 # covid19pinas
 
 > Just another covid19 tracker for Philippines
+[![GitHub license](https://img.shields.io/github/license/claide/covid19pinas)](https://github.com/claide/covid19pinas/blob/master/LICENSE)
 
 ## Website
 
