@@ -30,6 +30,34 @@ export default {
         hid: 'og:description',
         property: 'og:description',
         content: 'This website gathers data from credible sources, official reports and outlets of government to provide the number of COVID19 cases, deaths and recoveries within the Philippines. As new situation is published, this website will be updated regularly.'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: 'https://covid19pinas.ml/'
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Just another COVID19 tracker for Philippines'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'This website gathers data from credible sources, official reports and outlets of government to provide the number of COVID19 cases, deaths and recoveries within the Philippines. As new situation is published, this website will be updated regularly.'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://covid19pinas.ml/virus.jpg'
+      },
+      {
+        hid: 'twitter:image:alt', name: 'twitter:image:alt', content: 'COVID19'
       }
     ],
     link: [
