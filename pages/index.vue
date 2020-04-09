@@ -79,13 +79,18 @@
                     <div class="column">
                       <div class="content">
                         <p class="card-title is-marginless">Confirmed Cases</p>
-                        <h1>
+                        <h1 class="is-pulled-left">
                           <ICountUp
                             :delay="1000"
                             :endVal="resultPh.latest_data.confirmed"
                             :options="countOptions"
                           />
                         </h1>
+                        <p
+                          class="has-text-red is-pulled-right"
+                          style="margin-top: 14px;"
+                        >{{ others.casesPerOneMillion }} cases / 1M</p>
+                        <div class="is-clearfix"></div>
                         <p class="has-text-red">
                           <b-icon icon="arrow-top-right" size="is-small"></b-icon>
                           {{ resultPh.today.confirmed.toLocaleString() }} as of today
@@ -144,12 +149,20 @@
                       <div class="content">
                         <ul class>
                           <li class="has-text-grey flex">
-                            <div>PUIs</div>
-                            <div>{{ monitoring.pui.toLocaleString() }}</div>
+                            <div>Critical</div>
+                            <div>{{ others.critical }}</div>
+                          </li>
+                          <li class="has-text-grey flex">
+                            <div>Deaths / 1M</div>
+                            <div>{{ others.deathsPerOneMillion.toLocaleString() }}</div>
                           </li>
                           <li class="has-text-grey flex">
                             <div>Total tested</div>
-                            <div>{{ monitoring.totalTested.toLocaleString() }}</div>
+                            <div>{{ others.tests.toLocaleString() }}</div>
+                          </li>
+                          <li class="has-text-grey flex">
+                            <div>Tests / 1M</div>
+                            <div>{{ others.testsPerOneMillion.toLocaleString() }}</div>
                           </li>
                         </ul>
                       </div>
@@ -221,11 +234,7 @@ export default {
       resultPh: [],
       resultGlobal: [],
       errors: [],
-      puis: 0,
-      monitoring: {
-        pui: 1441,
-        totalTested: 5974
-      },
+      others: {},
       countOptions: {
         useEasing: true,
         useGrouping: true
@@ -233,15 +242,15 @@ export default {
     }
   },
   async asyncData({ query, error }) {
-    let [totalGlobal, infoPh, puiTotal] = await Promise.all([
+    let [totalGlobal, infoPh, othersInfo] = await Promise.all([
       axios.get(`https://corona-api.com/timeline`),
       axios.get(`https://corona-api.com/countries/ph`),
-      axios.get(`https://coronavirus-ph-api.herokuapp.com/facilities`)
+      axios.get(`https://corona.lmao.ninja/countries/ph`)
     ])
     return {
       resultGlobal: totalGlobal.data.data[0],
       resultPh: infoPh.data.data,
-      puis: puiTotal.data.map(item => item.puis).reduce((a, b) => a + b, 0)
+      others: othersInfo.data
     }
   },
   filters: {
