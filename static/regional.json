@@ -1,0 +1,128 @@
+[
+  {
+    "name": "For validation",
+    "admitted": 3,
+    "died": 0,
+    "recovered": 0,
+    "for_validation": 59
+  },
+  {
+    "name": "BARMM",
+    "admitted": 6,
+    "died": 3,
+    "recovered": 0,
+    "for_validation": 0
+  },
+  {
+    "name": "Bicol",
+    "admitted": 15,
+    "died": 0,
+    "recovered": 1,
+    "for_validation": 10
+  },
+  {
+    "name": "Cagayan Valley",
+    "admitted": 13,
+    "died": 1,
+    "recovered": 11,
+    "for_validation": 2
+  },
+  {
+    "name": "Calabarzon",
+    "admitted": 411,
+    "died": 56,
+    "recovered": 23,
+    "for_validation": 173
+  },
+  {
+    "name": "CAR",
+    "admitted": 11,
+    "died": 1,
+    "recovered": 7,
+    "for_validation": 1
+  },
+  {
+    "name": "CARAGA",
+    "admitted": 1,
+    "died": 0,
+    "recovered": 0,
+    "for_validation": 0
+  },
+  {
+    "name": "Central Luzon",
+    "admitted": 140,
+    "died": 25,
+    "recovered": 12,
+    "for_validation": 47
+  },
+  {
+    "name": "Central Visayas",
+    "admitted": 25,
+    "died": 9,
+    "recovered": 3,
+    "for_validation": 5
+  },
+  {
+    "name": "Davao",
+    "admitted": 62,
+    "died": 13,
+    "recovered": 8,
+    "for_validation": 8
+  },
+  {
+    "name": "Eastern Visayas",
+    "admitted": 3,
+    "died": 0,
+    "recovered": 1,
+    "for_validation": 1
+  },
+  {
+    "name": "Ilocos",
+    "admitted": 28,
+    "died": 10,
+    "recovered": 0,
+    "for_validation": 12
+  },
+  {
+    "name": "MiMaRoPa",
+    "admitted": 10,
+    "died": 1,
+    "recovered": 3,
+    "for_validation": 1
+  },
+  {
+    "name": "NCR",
+    "admitted": 1069,
+    "died": 167,
+    "recovered": 120,
+    "for_validation": 979
+  },
+  {
+    "name": "Northern Mindanao",
+    "admitted": 7,
+    "died": 3,
+    "recovered": 1,
+    "for_validation": 0
+  },
+  {
+    "name": "Soccsksargen",
+    "admitted": 8,
+    "died": 1,
+    "recovered": 2,
+    "for_validation": 5
+  },
+  {
+    "name": "Western Visayas",
+    "admitted": 20,
+    "died": 7,
+    "recovered": 5,
+    "for_validation": 10
+  },
+  {
+    "name": "Zamboanga Peninsula",
+    "admitted": 9,
+    "died": 0,
+    "recovered": 0,
+    "for_validation": 0
+  }
+]

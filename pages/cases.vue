@@ -1,12 +1,21 @@
 <template>
   <section class="section">
     <SimpleCard title="COVID19 cases in Philippines">
-      <div class="field has-text-right is-control">
-        <b-switch v-model="onPhilippines">Show cases outside Philippines</b-switch>
+      <!-- Begin selectbox -->
+      <div class="is-spacer-sm"></div>
+      <div class="columns">
+        <b-field class="column is-full-mobile is-3-desktop">
+          <b-select placeholder="Filter result" expanded v-model="selectedFilter">
+            <option value="all">All cases</option>
+            <option value="regional">Regional cases</option>
+            <option value="outside">Cases outside Philippines</option>
+          </b-select>
+        </b-field>
       </div>
+      <!-- End selectbox -->
       <div class="is-spacer-sm"></div>
       <b-table
-        v-if="!onPhilippines"
+        v-show="selectedFilter === 'all'"
         :data="tableData"
         :loading="isLoading"
         paginated
@@ -48,7 +57,8 @@
           </b-table-column>
         </template>
       </b-table>
-      <CaseOutside v-else />
+      <CaseOutside v-show="selectedFilter === 'outside'" />
+      <CaseRegional v-show="selectedFilter === 'regional'" />
     </SimpleCard>
   </section>
 </template>
@@ -57,6 +67,8 @@
 import Axios from 'axios'
 import SimpleCard from '@/components/SimpleCard'
 import CaseOutside from '@/components/CaseOutside'
+import CaseRegional from '@/components/CaseRegional'
+
 export default {
   name: 'Cases',
   head() {
@@ -64,10 +76,10 @@ export default {
       title: 'Cases'
     }
   },
-  components: { SimpleCard, CaseOutside },
+  components: { SimpleCard, CaseOutside, CaseRegional },
   data() {
     return {
-      onPhilippines: false,
+      selectedFilter: 'all',
       isLoading: false,
       tableData: [],
       total: 0,
