@@ -49,6 +49,7 @@
           <a
             href="http://www.francismagallen.com/"
             target="_blank"
+            @click.prevent="trackFolio"
             class="has-text-green"
           >Francis Magallen</a>
         </p>
@@ -85,6 +86,15 @@ export default {
   methods: {
     trackGithub() {
       const url = 'https://github.com/claide/covid19pinas'
+      this.$ga.query('send', 'event', 'outbound', 'click', url, {
+        transport: 'beacon',
+        hitCallback() {
+          document.location = url
+        }
+      })
+    },
+    trackFolio() {
+      const url = 'http://www.francismagallen.com/'
       this.$ga.query('send', 'event', 'outbound', 'click', url, {
         transport: 'beacon',
         hitCallback() {
