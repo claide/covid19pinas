@@ -55,7 +55,7 @@ export default {
               fill: true,
               borderWidth: '1px',
               borderColor: '#202125',
-              backgroundColor: ['#4d4dff', '#01B075', '#FF4839'],
+              backgroundColor: ['#FEBC2C', '#01B075', '#FD413C'],
               data: [male.length, female.length, unknown.length]
             }
           ]

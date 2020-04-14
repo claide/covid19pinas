@@ -8,7 +8,7 @@
       <div class="columns is-variable is-5">
         <div class="column is-3">
           <div class="content">
-            <h2 class="has-text-body">Worldwide Status</h2>
+            <h2 class="has-text-white">Worldwide Status</h2>
             <p>Last updated : {{ resultGlobal.updated_at | moment("dddd, MMMM Do YYYY") }}</p>
           </div>
           <div class="is-spacer-sm"></div>
@@ -67,7 +67,7 @@
 
         <div class="column">
           <div class="content">
-            <h2 class="has-text-body">Philippines Overview</h2>
+            <h2 class="has-text-white">Philippines Overview</h2>
             <p>Last updated : {{ resultPh.updated_at | moment("dddd, MMMM Do YYYY") }}</p>
           </div>
           <div class="is-spacer-sm"></div>
@@ -148,19 +148,19 @@
                     <div class="column">
                       <div class="content">
                         <ul class>
-                          <li class="has-text-grey flex">
+                          <li class="has-text-body flex">
                             <div>Critical</div>
                             <div>{{ others.critical }}</div>
                           </li>
-                          <li class="has-text-grey flex">
+                          <li class="has-text-body flex">
                             <div>Deaths / 1M</div>
                             <div>{{ others.deathsPerOneMillion.toLocaleString() }}</div>
                           </li>
-                          <li class="has-text-grey flex">
+                          <li class="has-text-body flex">
                             <div>Total tested</div>
                             <div>{{ others.tests.toLocaleString() }}</div>
                           </li>
-                          <li class="has-text-grey flex">
+                          <li class="has-text-body flex">
                             <div>Tests / 1M</div>
                             <div>{{ others.testsPerOneMillion.toLocaleString() }}</div>
                           </li>

@@ -8,7 +8,7 @@
           <p>
             Feedbacks and corrections are welcome. Email me at
             <a
-              class="has-text-green"
+              class="has-text-primary"
               href="mailto:magallen.fc@gmail.com"
             >magallen.fc@gmail.com</a>
           </p>
@@ -19,20 +19,20 @@
             <li>(DOH) Department of Health Philippines</li>
             <li>
               <a
-                class="has-text-green"
+                class="has-text-primary"
                 href="https://github.com/novelcovid/api"
                 target="_blank"
               >NovelCOVID 19 API</a>
             </li>
             <li>
               <a
-                class="has-text-green"
+                class="has-text-primary"
                 href="https://github.com/sorxrob/coronavirus-ph-api"
                 target="_blank"
               >Coronavirus Ph API</a>
             </li>
             <li>
-              <a class="has-text-green" href="http://newsapi.org" target="_blank">News API</a>
+              <a class="has-text-primary" href="http://newsapi.org" target="_blank">News API</a>
             </li>
           </ul>
           <div class="is-spacer-sm"></div>

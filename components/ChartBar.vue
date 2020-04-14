@@ -74,7 +74,7 @@ export default {
               barPercentage: 0.5,
               categoryPercentage: 1.0,
               type: 'horizontalBar',
-              backgroundColor: '#01B075',
+              backgroundColor: '#FD413C',
               data: [childAges, youngAges, midAges, oldAges]
             }
           ]

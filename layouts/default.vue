@@ -50,7 +50,7 @@
             href="http://www.francismagallen.com/"
             target="_blank"
             @click.prevent="trackFolio"
-            class="has-text-green"
+            class="has-text-primary"
           >Francis Magallen</a>
         </p>
       </div>

@@ -5,7 +5,13 @@
       <div class="is-spacer-sm"></div>
       <div class="columns">
         <b-field class="column is-full-mobile is-3-desktop">
-          <b-select placeholder="Filter result" expanded v-model="selectedFilter">
+          <b-select
+            placeholder="Filter result"
+            size="is-medium"
+            expanded
+            rounded
+            v-model="selectedFilter"
+          >
             <option value="all">All cases</option>
             <option value="regional">Regional cases</option>
             <option value="outside">Cases outside Philippines</option>

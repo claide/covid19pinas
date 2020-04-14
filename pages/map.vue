@@ -55,8 +55,8 @@ export default {
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       circle: {
         radius: 30000,
-        color: '#01B075',
-        fill: '#01B075'
+        color: '#FD413C',
+        fill: '#FD413C'
       },
       icon: L.icon({
         iconUrl: require('~/assets/img/dot.png'),

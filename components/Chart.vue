@@ -63,9 +63,9 @@ export default {
           datasets: [
             {
               label: 'Confirmed',
-              backgroundColor: '#4d4dff',
-              borderColor: '#4d4dff',
-              pointRadius: 3,
+              backgroundColor: '#FEBC2C',
+              borderColor: '#FEBC2C',
+              pointRadius: 5,
               fill: false,
               data: responseData
                 .map(timeline => timeline.new_confirmed)
@@ -73,9 +73,9 @@ export default {
             },
             {
               label: 'Deaths',
-              backgroundColor: '#FF4839',
-              borderColor: '#FF4839',
-              pointRadius: 3,
+              backgroundColor: '#FD413C',
+              borderColor: '#FD413C',
+              pointRadius: 5,
               fill: false,
               data: responseData
                 .map(timeline => timeline.new_deaths)
@@ -85,7 +85,7 @@ export default {
               label: 'Recovered',
               backgroundColor: '#01B075',
               borderColor: '#01B075',
-              pointRadius: 3,
+              pointRadius: 5,
               fill: false,
               data: responseData
                 .map(timeline => timeline.new_recovered)

@@ -2,18 +2,19 @@
 @import "~bulma/sass/utilities/_all";
 
 // Variables
-$dark: #16171B;
-$dark-mild: #202125;
+$dark: #212529;
+$dark-mild: #2A2E32;
 $dark-nav: #1E2225;
 $white: #FFFFFF;
 $blue: #4d4dff;
 $red: #FF4839;
 $green: #01B075;
-$grey: #606165;
-$grey-body: #939498;
+$grey: #4E5358;
+$grey-body: #BEBDBE;
 $divider-background-color: $grey;
-$primary: #01B075;
-$loading-background: #16171B;
+$primary: #FD413C;
+$loading-background: #212529;
+$yellow: #FEBC2C;
 
 $table-sticky-header-height: 800px;
 
@@ -42,12 +43,19 @@ body {
   width: 100%;
   overflow: hidden;
   height: 100px;
+
+  a {
+    color: $primary;
+    &:hover {
+      color: $primary !important;
+    }
+  }
 }
 
 .navbar {
   min-height: 5.25rem;
   &.is-dark {
-    background-color: $dark-nav;
+    background-color: $dark;
     box-shadow: none;
   }
 
@@ -61,7 +69,7 @@ body {
     }
 
     .navbar-item {
-      color: $green !important;
+      color: $primary !important;
       padding: 1em;
       font-size: 1.5em;
 
@@ -78,7 +86,7 @@ body {
     }
 
     .navbar-item {
-      color: $white;
+      color: $grey-body !important;
     }
   }
 
@@ -87,9 +95,13 @@ body {
     font-size: 1.1em;
     transition: 0.5s;
 
+    &.nuxt-link-exact-active {
+      color: $primary !important;
+    }
+
     &:hover {
       background-color: transparent !important;
-      color: $green !important;
+      color: $primary !important;
     }
   }
 }
@@ -106,7 +118,7 @@ body {
 
   .card-title {
     font-size: 1.2em;
-    color: $grey;
+    color: $grey-body;
   }
 
   .card-content {
@@ -217,17 +229,13 @@ body {
   font-size: 58px;
 }
 
-// .b-table .table-wrapper.has-sticky-header {
-//   height: 800px;
-// }
-
 .b-table {
   .table {
     background-color: $dark-mild;
     thead {
       th {
-        color: $grey;
-        border: 1px solid $grey;
+        color: $grey-body;
+        border: 1px solid $grey-body;
         border-width: 0 0 1px;
       }
     }
@@ -242,6 +250,25 @@ body {
   }
 }
 
+.input, .taginput .taginput-container.is-focusable, .textarea, .select select {
+  background-color: #2D3136;
+  border-color: $grey-body;
+  color: $grey-body;
+  border-radius: 25px;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: $primary;
+}
+
+.select:not(.is-multiple):not(.is-loading):hover::after {
+  border-color: $primary;
+}
+
+.select select option {
+  color: $grey-body;
+}
+
 .b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td {
   @media (max-width: 768px) {
     border-bottom: 1px solid $grey;
@@ -249,13 +276,13 @@ body {
 }
 
 .pagination-previous, .pagination-next, .pagination-link {
-  border-color: $green;
-  background-color: $green;
+  border-color: $primary;
+  background-color: $primary;
   color: $white;
 
   &:hover, &:focus {
-    border-color: $green;
-    background-color: $green;
+    border-color: $primary;
+    background-color: $primary;
     color: $white;
   }
 }
@@ -347,6 +374,15 @@ body {
   height: 700px;
 }
 
+a {
+
+  &.has-text-primary {
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}
+
 // Helpers
 .has-text-white {
   color: $white !important;
@@ -357,7 +393,7 @@ body {
 }
 
 .has-text-red {
-  color: $red !important;
+  color: $primary !important;
 }
 
 .has-text-grey {
@@ -366,6 +402,10 @@ body {
 
 .has-text-green {
   color: $green !important;
+}
+
+.has-text-primary {
+  color: $primary !important;
 }
 
 .has-text-body {
