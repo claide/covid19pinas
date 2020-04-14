@@ -7,7 +7,7 @@
 
 ## Website
 
-[https://covid19pinas.ml](https://covid19pinas.ml/)
+[https://covidph.live/](https://covidph.live/)
 
 ## Build Setup
 
