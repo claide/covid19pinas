@@ -1,7 +1,7 @@
 {
-  "name": "covid19pinas",
+  "name": "covidph",
   "version": "1.0.0",
-  "description": "Just another covid19 tracker",
+  "description": "Just another covid19 tracker made for Phillipines.",
   "author": "Francis Claide Magallen",
   "private": true,
   "scripts": {

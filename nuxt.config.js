@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: 'COVID19pinas - %s',
+    titleTemplate: 'COVIDPH - %s',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,12 +19,12 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://covid19pinas.ml/'
+        content: 'https://covidph.live/'
       },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://covid19pinas.ml/virus.jpg'
+        content: 'https://covidph.live/virus.jpg'
       },
       {
         hid: 'og:description',
@@ -39,7 +39,7 @@ export default {
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: 'https://covid19pinas.ml/'
+        content: 'https://covidph.live/'
       },
       {
         hid: 'twitter:title',
@@ -54,7 +54,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: 'https://covid19pinas.ml/virus.jpg'
+        content: 'https://covidph.live/virus.jpg'
       },
       {
         hid: 'twitter:image:alt', name: 'twitter:image:alt', content: 'COVID19'
