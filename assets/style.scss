@@ -235,7 +235,7 @@ body {
     thead {
       th {
         color: $grey-body;
-        border: 1px solid $grey-body;
+        border: 1px solid #4E5358;
         border-width: 0 0 1px;
       }
     }
@@ -248,11 +248,29 @@ body {
       }
     }
   }
+
+  .is-hoverable tbody tr:not(.is-selected):hover {
+    background-color: #404040;
+  }
+}
+
+.pagination-link {
+  background-color: transparent;
+  border-color: $primary;
+}
+
+.pagination-link.is-current {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.pagination-previous[disabled], .pagination-next[disabled], .pagination-link[disabled] {
+  background-color: #404040;
 }
 
 .input, .taginput .taginput-container.is-focusable, .textarea, .select select {
   background-color: #2D3136;
-  border-color: $grey-body;
+  border-color: #4E5358;
   color: $grey-body;
   border-radius: 25px;
 }
@@ -276,8 +294,8 @@ body {
 }
 
 .pagination-previous, .pagination-next, .pagination-link {
-  border-color: $primary;
-  background-color: $primary;
+  border-color: #4e5358;
+  background-color: transparent;
   color: $white;
 
   &:hover, &:focus {

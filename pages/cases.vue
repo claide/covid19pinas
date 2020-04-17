@@ -1,113 +1,89 @@
 <template>
   <section class="section">
-    <SimpleCard title="COVID19 cases in Philippines">
-      <!-- Begin selectbox -->
-      <div class="is-spacer-sm"></div>
-      <div class="columns">
-        <b-field class="column is-full-mobile is-3-desktop">
-          <b-select
-            placeholder="Filter result"
-            size="is-medium"
-            expanded
-            rounded
-            v-model="selectedFilter"
-          >
-            <option value="all">All cases</option>
-            <option value="regional">Regional cases</option>
-            <option value="outside">Cases outside Philippines</option>
-          </b-select>
-        </b-field>
+    <div class="card">
+      <div class="card-content">
+        <p class="card-title">COVID19 cases in Philippines</p>
+        <div class="is-spacer-sm"></div>
+        <!-- Begin table -->
+        <b-table
+          :data="caseReports"
+          :loading="isLoading"
+          :paginated="true"
+          :hoverable="true"
+          :total="total"
+          :per-page="perPage"
+          @page-change="onPageChange"
+          aria-next-label="Next page"
+          aria-previous-label="Previous page"
+          aria-page-label="Page"
+          aria-current-label="Current page"
+        >
+          <template slot-scope="props">
+            <b-table-column field="CaseNo" label="Case No.">{{ props.row.CaseNo }}</b-table-column>
+            <b-table-column field="DateRepConf" label="Date confirmed">{{ props.row.DateRepConf }}</b-table-column>
+            <b-table-column field="Age" label="Age" sortable>{{ props.row.Age }}</b-table-column>
+            <b-table-column field="Sex" label="Gender">{{ props.row.Sex }}</b-table-column>
+            <b-table-column field="RegionRes" label="Region" searchable>{{ props.row.RegionRes }}</b-table-column>
+            <b-table-column
+              field="ProvCityRes"
+              label="Province"
+              searchable
+            >{{ props.row.ProvCityRes }}</b-table-column>
+            <b-table-column
+              field="RemovalType"
+              label="Status"
+              :class="statType(props.row.RemovalType)"
+            >{{ ((props.row.RemovalType.length > 0) ? props.row.RemovalType : '-') }}</b-table-column>
+          </template>
+        </b-table>
+        <!-- End table -->
       </div>
-      <!-- End selectbox -->
-      <div class="is-spacer-sm"></div>
-      <b-table
-        v-show="selectedFilter === 'all'"
-        :data="tableData"
-        :loading="isLoading"
-        paginated
-        :pagination-simple="true"
-        backend-pagination
-        :total="total"
-        :per-page="perPage"
-        @page-change="onPageChange"
-        aria-next-label="Next page"
-        aria-previous-label="Previous page"
-        aria-page-label="Page"
-        aria-current-label="Current page"
-      >
-        <template slot-scope="props">
-          <b-table-column field="case_no" label="Case #" sortable>{{ props.row.case_no }}</b-table-column>
-          <b-table-column
-            field="date"
-            label="Date"
-            sortable
-          >{{ props.row.date | moment("MMMM DD, YYYY") }}</b-table-column>
-          <b-table-column field="age" label="Age" sortable>{{ props.row.age }}</b-table-column>
-          <b-table-column field="gender" label="Gender" sortable>{{ props.row.gender }}</b-table-column>
-          <b-table-column
-            field="nationality"
-            label="Nationality"
-            :searchable="true"
-          >{{ props.row.nationality }}</b-table-column>
-          <b-table-column
-            field="hospital_admitted_to"
-            label="Admitted to"
-            :searchable="true"
-          >{{ props.row.hospital_admitted_to }}</b-table-column>
-          <b-table-column
-            field="travel_history"
-            label="Travel History"
-          >{{ props.row.travel_history }}</b-table-column>
-          <b-table-column field="status" label="Status" :class="statType(props.row.status)">
-            <span class="is-size-6">{{ props.row.status }}</span>
-          </b-table-column>
-        </template>
-      </b-table>
-      <CaseOutside v-show="selectedFilter === 'outside'" />
-      <CaseRegional v-show="selectedFilter === 'regional'" />
-    </SimpleCard>
+    </div>
   </section>
 </template>
 
 <script>
 import Axios from 'axios'
-import SimpleCard from '@/components/SimpleCard'
-import CaseOutside from '@/components/CaseOutside'
-import CaseRegional from '@/components/CaseRegional'
 
 export default {
-  name: 'Cases',
+  name: 'Case-reports',
   head() {
     return {
       title: 'Cases'
     }
   },
-  components: { SimpleCard, CaseOutside, CaseRegional },
   data() {
     return {
-      selectedFilter: 'all',
-      isLoading: false,
-      tableData: [],
+      caseReports: [],
       total: 0,
       page: 1,
-      perPage: 20
+      perPage: 20,
+      isLoading: false
     }
+  },
+  mounted() {
+    this.loadAsyncData()
   },
   methods: {
     loadAsyncData() {
       this.isLoading = true
-      Axios.get(`https://coronavirus-ph-api.herokuapp.com/cases`).then(
-        response => {
-          this.tableData = []
-          let currentTotal = response.data.length
-          if (currentTotal / this.perPage > 1000) {
-            currentTotal = this.perPage * 1000
-          }
-          this.total = currentTotal
-          this.tableData = response.data
-          this.isLoading = false
+      Axios.get(
+        `https://${process.env.PROJECT_ID}.firebaseio.com/cases.json?auth=${process.env.DATABASE_SECRET}`
+      ).then(response => {
+        this.caseReports = []
+        let currentTotal = response.data.length
+        if (currentTotal / this.perPage > 1000) {
+          currentTotal = this.perPage * 1000
         }
-      )
+        this.total = currentTotal
+        let sortedCases = response.data.sort(
+          (a, b) =>
+            new Date(a.DateRepConf).getDate() -
+            new Date(b.DateRepConf).getDate()
+        )
+        this.caseReports = sortedCases
+        this.isLoading = false
+      })
     },
     onPageChange(page) {
       this.page = page
@@ -120,9 +96,6 @@ export default {
         return 'has-text-red'
       }
     }
-  },
-  mounted() {
-    this.loadAsyncData()
   }
 }
 </script>

@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 export default {
   mode: 'spa',
@@ -97,7 +98,41 @@ export default {
     // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
     'nuxt-leaflet',
+    '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: process.env.API_KEY,
+          authDomain: process.env.AUTH_DOMAIN,
+          databaseURL: process.env.DATABASE_URL,
+          projectId: process.env.PROJECT_ID,
+          storageBucket: process.env.STORAGE_BUCKET,
+          messagingSenderId: process.env.MESSAGING_SENDER_ID,
+          appId: process.env.APP_ID,
+          measurementId: process.env.MEASUREMENT_ID,
+          databaseSecret: process.env.DATABASE_SECRET,
+        },
+        services: {
+          auth: true,
+          realtimeDb: true,
+        }
+      }
+    ],
   ],
+
+  env: {
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    databaseURL: process.env.DATABASE_URL,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID,
+    measurementId: process.env.MEASUREMENT_ID,
+    databaseSecret: process.env.DATABASE_SECRET,
+  },
+
   /*
   ** Build configuration
   */
@@ -106,6 +141,12 @@ export default {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+    }
+  },
+
+  vue: {
+    config: {
+      productionTip: false
     }
   }
 }

@@ -50,9 +50,11 @@ export default {
       isLoading: false,
       isFullPage: true,
       cases: [],
-      titleLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      results: [],
+      titleLayer:
+        'https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=d9f72db70af14b5f9dd32de67fefadea',
       attribution:
-        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        'Maps &copy; <a href="http://www.thunderforest.com">Thunderforest</a>, Data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
       circle: {
         radius: 30000,
         color: '#FD413C',
@@ -68,6 +70,7 @@ export default {
   },
   mounted() {
     this.getCases()
+    this.getData()
   },
   methods: {
     getCases() {
@@ -78,6 +81,13 @@ export default {
           this.isLoading = false
         }
       )
+    },
+    getData() {
+      Axios.get(
+        `https://${process.env.PROJECT_ID}.firebaseio.com/cases.json?auth=${process.env.DATABASE_SECRET}`
+      ).then(response => {
+        this.results = response.data
+      })
     }
   }
 }

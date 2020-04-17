@@ -245,7 +245,7 @@ export default {
     let [totalGlobal, infoPh, othersInfo] = await Promise.all([
       axios.get(`https://corona-api.com/timeline`),
       axios.get(`https://corona-api.com/countries/ph`),
-      axios.get(`https://corona.lmao.ninja/countries/ph`)
+      axios.get(`https://corona.lmao.ninja/v2/countries/ph`)
     ])
     return {
       resultGlobal: totalGlobal.data.data[0],
