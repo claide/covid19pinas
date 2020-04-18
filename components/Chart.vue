@@ -66,12 +66,12 @@ export default {
               label: 'Confirmed',
               backgroundColor: '#FEBC2C',
               borderColor: '#FEBC2C',
-              pointRadius: 3,
+              pointRadius: 0,
               fill: false,
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
-              showLine: false,
+              // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_confirmed)
                 .filter(Number)
@@ -80,12 +80,12 @@ export default {
               label: 'Deaths',
               backgroundColor: '#FD413C',
               borderColor: '#FD413C',
-              pointRadius: 3,
+              pointRadius: 0,
               fill: false,
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
-              showLine: false,
+              // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_deaths)
                 .filter(Number)
@@ -94,12 +94,9 @@ export default {
               label: 'Recovered',
               backgroundColor: '#01B075',
               borderColor: '#01B075',
-              pointRadius: 3,
+              pointRadius: 0,
               fill: false,
               borderWidth: 2,
-              pointHoverBorderWidth: 1,
-              pointHoverRadius: 8,
-              showLine: false,
               data: responseData
                 .map(timeline => timeline.new_recovered)
                 .filter(Number)
