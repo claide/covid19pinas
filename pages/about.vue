@@ -16,7 +16,13 @@
           <p class="has-text-weight-bold">Sources</p>
           <ul>
             <li>(WHO) World Health Organization</li>
-            <li>(DOH) Department of Health Philippines</li>
+            <li>
+              <a
+                class="has-text-primary"
+                href="https://www.doh.gov.ph/"
+                target="_blank"
+              >(DOH) Department of Health Philippines</a>
+            </li>
             <li>
               <a
                 class="has-text-primary"

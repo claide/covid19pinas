@@ -1,8 +1,16 @@
 <template>
   <section class="section">
-    <SimpleCard title="Map">
+    <div class="is-spacer"></div>
+    <p
+      class="is-size-3 has-text-centered is-uppercase"
+      style="margin-bottom: 0"
+    >Page is under maintenance.</p>
+    <p class="has-text-centered">Kindly check back later.</p>
+    <!-- <SimpleCard title="Map">
       <div class="is-spacer-sm"></div>
-      <div id="map-wrap">
+      <p class="is-size-3 has-text-centered is-uppercase is-spacer-sm">Page is under maintenance.</p>
+    <p class="has-text-centered">Kindly check back later.</p>-->
+    <!-- <div id="map-wrap">
         <client-only>
           <l-map :zoom="6.21" :center="[11.5029379,121.805921]" style="height: 100%">
             <l-tile-layer :url="titleLayer" :attribution="attribution"></l-tile-layer>
@@ -27,8 +35,8 @@
             </l-circle>
           </l-map>
         </client-only>
-      </div>
-    </SimpleCard>
+    </div>-->
+    <!-- </SimpleCard> -->
   </section>
 </template>
 
