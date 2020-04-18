@@ -37,6 +37,10 @@
           </template>
         </b-table>
         <!-- End table -->
+        <small class="has-text-body">
+          Source:
+          <a href="/" class="has-text-body">Department of Health Philippines</a>
+        </small>
       </div>
     </div>
   </section>
@@ -77,13 +81,12 @@ export default {
           currentTotal = this.perPage * 1000
         }
         this.total = currentTotal
-        let sortedCases = snapshot
-          .val()
-          .sort(
-            (a, b) =>
-              new Date(a.DateRepConf).getDate() -
-              new Date(b.DateRepConf).getDate()
-          )
+        let sortedCases = snapshot.val()
+        // .sort(
+        //   (a, b) =>
+        //     new Date(a.DateRepConf).getDate() -
+        //     new Date(b.DateRepConf).getDate()
+        // )
         this.caseReports = sortedCases
         this.isLoading = false
       } catch (error) {
