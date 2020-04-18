@@ -5,7 +5,7 @@
         <div class="column is-3-desktop">
           <div class="content">
             <h2 class="has-text-white">Worldwide Status</h2>
-            <p>Last updated : {{ resultGlobal.updated_at | moment("dddd, MMMM Do YYYY") }}</p>
+            <p>Last updated : {{ resultGlobal.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
           </div>
           <div class="is-spacer-sm"></div>
           <SimpleCard title="Coronavirus Cases">
@@ -64,7 +64,7 @@
         <div class="column">
           <div class="content">
             <h2 class="has-text-white">Philippines Overview</h2>
-            <p>Last updated : {{ resultPh.updated_at | moment("dddd, MMMM Do YYYY") }}</p>
+            <p>Last updated : {{ resultPh.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
           </div>
           <div class="is-spacer-sm"></div>
           <div class="columns columns is-variable is-3">
