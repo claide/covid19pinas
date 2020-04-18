@@ -62,28 +62,36 @@ export default {
     }
   },
   mounted() {
-    this.loadAsyncData()
+    this.loadFromDb()
   },
   methods: {
-    loadAsyncData() {
+    async loadFromDb() {
       this.isLoading = true
-      Axios.get(
-        `https://${process.env.PROJECT_ID}.firebaseio.com/cases.json?auth=${process.env.DATABASE_SECRET}`
-      ).then(response => {
+      const messageRef = this.$fireDb.ref('cases')
+      try {
+        const snapshot = await messageRef.once('value')
+
         this.caseReports = []
-        let currentTotal = response.data.length
+        let currentTotal = snapshot.val().length
         if (currentTotal / this.perPage > 1000) {
           currentTotal = this.perPage * 1000
         }
         this.total = currentTotal
-        let sortedCases = response.data.sort(
-          (a, b) =>
-            new Date(a.DateRepConf).getDate() -
-            new Date(b.DateRepConf).getDate()
-        )
+        let sortedCases = snapshot
+          .val()
+          .sort(
+            (a, b) =>
+              new Date(a.DateRepConf).getDate() -
+              new Date(b.DateRepConf).getDate()
+          )
         this.caseReports = sortedCases
         this.isLoading = false
-      })
+
+        console.log(snapshot.val())
+      } catch (e) {
+        alert(e)
+        return
+      }
     },
     onPageChange(page) {
       this.page = page

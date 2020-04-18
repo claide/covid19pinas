@@ -95,7 +95,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://buefy.github.io/#/documentation
     'nuxt-buefy',
     'nuxt-leaflet',
     '@nuxtjs/dotenv',
@@ -114,7 +113,6 @@ export default {
           databaseSecret: process.env.DATABASE_SECRET,
         },
         services: {
-          auth: true,
           realtimeDb: true,
         }
       }
