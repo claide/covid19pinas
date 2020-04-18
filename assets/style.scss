@@ -331,6 +331,7 @@ a {
 
     &:focus, &:active, &:hover {
       background-color: $primary !important;
+      color: $white !important;
     }
   }
 }
