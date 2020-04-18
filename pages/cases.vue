@@ -19,7 +19,7 @@
           aria-current-label="Current page"
         >
           <template slot-scope="props">
-            <b-table-column field="CaseNo" label="Case No.">{{ props.row.CaseNo }}</b-table-column>
+            <b-table-column field="CaseCode" label="Case No.">{{ props.row.CaseCode }}</b-table-column>
             <b-table-column field="DateRepConf" label="Date confirmed">{{ props.row.DateRepConf }}</b-table-column>
             <b-table-column field="Age" label="Age" sortable>{{ props.row.Age }}</b-table-column>
             <b-table-column field="Sex" label="Gender">{{ props.row.Sex }}</b-table-column>
@@ -86,16 +86,13 @@ export default {
           )
         this.caseReports = sortedCases
         this.isLoading = false
-
-        console.log(snapshot.val())
-      } catch (e) {
-        alert(e)
-        return
+      } catch (error) {
+        error({ statusCode: 404, message: 'Something went wrong' })
       }
     },
     onPageChange(page) {
       this.page = page
-      this.loadAsyncData()
+      this.loadFromDb()
     },
     statType(string) {
       if (string === 'Recovered') {

@@ -20,7 +20,10 @@
                   >COVID19 WHO</a>
                 </li>
                 <li>
-                  <a class="has-text-primary" href="https://www.doh.gov.ph/2019-nCoV">COVID19 DOH</a>
+                  <a
+                    class="has-text-primary"
+                    href="https://www.doh.gov.ph/covid-19/case-tracker"
+                  >COVID19 DOH</a>
                 </li>
                 <li>
                   <a

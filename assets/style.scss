@@ -52,6 +52,19 @@ body {
   }
 }
 
+a {
+  color: $primary;
+  &:hover, &:focus {
+    color: $primary !important;
+  }
+
+  &.has-text-primary {
+    &:hover, &:focus {
+      color: $primary !important;
+    }
+  }
+}
+
 .navbar {
   min-height: 5.25rem;
   &.is-dark {
@@ -94,6 +107,8 @@ body {
     padding: 1em;
     font-size: 1.1em;
     transition: 0.5s;
+    display: flex;
+    align-items: center;
 
     &.nuxt-link-exact-active {
       color: $primary !important;
@@ -450,4 +465,11 @@ a {
 .has-bg-red {
   background-color: $red !important;
   color: $white !important;
+}
+
+.column-reverse-mobile {
+  @media (max-width: 769px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }

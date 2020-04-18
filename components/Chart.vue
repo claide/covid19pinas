@@ -18,17 +18,18 @@ export default {
             {
               ticks: {
                 beginAtZero: true,
-                stepSize: 200
+                stepSize: 150
               },
               gridLines: {
-                display: true
+                display: false
               }
             }
           ],
           xAxes: [
             {
               ticks: {
-                beginAtZero: true
+                beginAtZero: true,
+                stepSize: 150
               },
               gridLines: {
                 display: false
@@ -65,8 +66,12 @@ export default {
               label: 'Confirmed',
               backgroundColor: '#FEBC2C',
               borderColor: '#FEBC2C',
-              pointRadius: 5,
+              pointRadius: 3,
               fill: false,
+              borderWidth: 2,
+              pointHoverBorderWidth: 1,
+              pointHoverRadius: 8,
+              showLine: false,
               data: responseData
                 .map(timeline => timeline.new_confirmed)
                 .filter(Number)
@@ -75,8 +80,12 @@ export default {
               label: 'Deaths',
               backgroundColor: '#FD413C',
               borderColor: '#FD413C',
-              pointRadius: 5,
+              pointRadius: 3,
               fill: false,
+              borderWidth: 2,
+              pointHoverBorderWidth: 1,
+              pointHoverRadius: 8,
+              showLine: false,
               data: responseData
                 .map(timeline => timeline.new_deaths)
                 .filter(Number)
@@ -85,8 +94,12 @@ export default {
               label: 'Recovered',
               backgroundColor: '#01B075',
               borderColor: '#01B075',
-              pointRadius: 5,
+              pointRadius: 3,
               fill: false,
+              borderWidth: 2,
+              pointHoverBorderWidth: 1,
+              pointHoverRadius: 8,
+              showLine: false,
               data: responseData
                 .map(timeline => timeline.new_recovered)
                 .filter(Number)

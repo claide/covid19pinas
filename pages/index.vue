@@ -1,12 +1,8 @@
 <template>
   <div>
     <section class="section">
-      <!-- <div class="notification has-bg-red">
-        <button class="delete"></button>
-        Code Red Sub-Level 2 has been raised by the Philippines over the COVID19 threat.
-      </div>-->
-      <div class="columns is-variable is-5">
-        <div class="column is-3">
+      <div class="columns is-variable is-5 column-reverse-mobile">
+        <div class="column is-3-desktop">
           <div class="content">
             <h2 class="has-text-white">Worldwide Status</h2>
             <p>Last updated : {{ resultGlobal.updated_at | moment("dddd, MMMM Do YYYY") }}</p>

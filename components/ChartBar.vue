@@ -28,7 +28,7 @@ export default {
                 beginAtZero: true
               },
               gridLines: {
-                display: true
+                display: false
               }
             }
           ],
@@ -52,81 +52,74 @@ export default {
   },
   async mounted() {
     this.loaded = false
-    Axios.get(
-      `https://${process.env.PROJECT_ID}.firebaseio.com/cases.json?auth=${process.env.DATABASE_SECRET}`
-    )
-      .then(response => {
-        const ageGroupss = response.data.map(item => item.AgeGroup)
-        // const grouped = response.data.reduce((r, a) => {
-        //   r[a.AgeGroup] = [...(r[a.AgeGroup] || []), a]
-        //   return r
-        // })
+    const messageRef = this.$fireDb.ref('cases')
+    try {
+      const snapshot = await messageRef.once('value')
+      let result = snapshot.val()
+      const group1 = []
+      const group2 = []
+      const group3 = []
+      const group4 = []
+      const group5 = []
+      const group6 = []
+      const group7 = []
 
-        let ageGroups = [
-          '0-12',
-          '13-17',
-          '18-24',
-          '25-34',
-          '45-54',
-          '55-65',
-          '66-79',
-          '80+'
+      result.forEach(element => {
+        // <19
+        if (element.Age >= 0 && element.Age < 20) {
+          group1.push(element)
+        }
+        // 20-29
+        if (element.Age > 19 && element.Age < 30) {
+          group2.push(element)
+        }
+        // 30-39
+        if (element.Age >= 30 && element.Age < 40) {
+          group3.push(element)
+        }
+        // 40-49
+        if (element.Age >= 40 && element.Age < 50) {
+          group4.push(element)
+        }
+        // 50-59
+        if (element.Age >= 50 && element.Age < 60) {
+          group5.push(element)
+        }
+        // 60-69
+        if (element.Age >= 60 && element.Age < 70) {
+          group6.push(element)
+        }
+        // <=70
+        if (element.Age >= 70) {
+          group7.push(element)
+        }
+      })
+
+      this.chartData = {
+        labels: ['<19', '20-29', '30-39', '40-49', '50-59', '60-69', '70+'],
+        datasets: [
+          {
+            barPercentage: 0.5,
+            categoryPercentage: 1.0,
+            type: 'horizontalBar',
+            backgroundColor: '#FEBC2C',
+            data: [
+              group1.length,
+              group2.length,
+              group3.length,
+              group4.length,
+              group5.length,
+              group6.length,
+              group7.length
+            ]
+          }
         ]
+      }
 
-        function getAgeRange(age) {
-          return ageGroups.find(e => {
-            let s = e.split('-')
-            return age >= s[0] && age <= s[1]
-          })
-        }
-
-        this.chartData = {
-          labels: Object.keys(grouped),
-          datasets: [
-            {
-              barPercentage: 0.5,
-              categoryPercentage: 1.0,
-              type: 'horizontalBar',
-              backgroundColor: '#FD413C',
-              data: grouped
-            }
-          ]
-        }
-        this.loaded = false
-      })
-
-      // Axios.get(`https://coronavirus-ph-api.herokuapp.com/cases`)
-      //   .then(response => {
-      //     const responseData = response.data
-      //     const childAges = responseData
-      //       .map(item => item.age)
-      //       .filter(age => age < 18).length
-      //     const youngAges = responseData
-      //       .map(item => item.age)
-      //       .filter(age => (age = 18 && age <= 30)).length
-      //     const midAges = responseData
-      //       .map(item => item.age)
-      //       .filter(age => (age = 31 && age <= 45)).length
-      //     const oldAges = responseData
-      //       .map(item => item.age)
-      //       .filter(age => age > 46).length
-      //     this.chartData = {
-      //       labels: ['0-17', '18-30', '31-45', '46+'],
-      //       datasets: [
-      //         {
-      //           barPercentage: 0.5,
-      //           categoryPercentage: 1.0,
-      //           type: 'horizontalBar',
-      //           backgroundColor: '#FD413C',
-      //           data: [childAges, youngAges, midAges, oldAges]
-      //         }
-      //       ]
-      //     }
-      //     this.loaded = true
-      //   })
-      .catch(error => {
-        console.log(error)
-      })
+      this.loaded = true
+    } catch (error) {
+      return
+    }
   }
 }
 </script>
