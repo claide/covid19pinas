@@ -98,6 +98,7 @@ export default {
     'nuxt-buefy',
     'nuxt-leaflet',
     '@nuxtjs/dotenv',
+    '@nuxtjs/proxy',
     [
       '@nuxtjs/firebase',
       {
@@ -130,6 +131,15 @@ export default {
     measurementId: process.env.MEASUREMENT_ID,
     databaseSecret: process.env.DATABASE_SECRET,
   },
+
+  // axios: {
+  //   proxy: true
+  // },
+
+  // proxy: {
+  //   target: 'https://en.wikipedia.org/',
+  //   changeOrigin: true
+  // },
 
   /*
   ** Build configuration
