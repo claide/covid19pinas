@@ -7,6 +7,10 @@
       :width="width"
       :height="height"
     />
+    <small class="has-text-body">
+      Source:
+      <a href="https://www.doh.gov.ph/covid-19/case-tracker">DOH Philippines</a>
+    </small>
   </div>
 </template>
 

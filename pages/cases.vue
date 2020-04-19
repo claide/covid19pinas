@@ -24,11 +24,9 @@
             <b-table-column field="Age" label="Age" sortable>{{ props.row.Age }}</b-table-column>
             <b-table-column field="Sex" label="Gender">{{ props.row.Sex }}</b-table-column>
             <b-table-column field="RegionRes" label="Region" searchable>{{ props.row.RegionRes }}</b-table-column>
-            <b-table-column
-              field="ProvCityRes"
-              label="Province"
-              searchable
-            >{{ props.row.ProvCityRes }}</b-table-column>
+            <b-table-column field="ProvCityRes" label="Province" searchable>
+              <span v-html="props.row.ProvCityRes"></span>
+            </b-table-column>
             <b-table-column
               field="RemovalType"
               label="Status"
@@ -39,7 +37,10 @@
         <!-- End table -->
         <small class="has-text-body">
           Source:
-          <a href="/" class="has-text-body">Department of Health Philippines</a>
+          <a
+            href="https://www.doh.gov.ph/covid-19/case-tracker"
+            class="has-text-body"
+          >Department of Health Philippines</a>
         </small>
       </div>
     </div>

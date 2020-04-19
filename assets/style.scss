@@ -336,6 +336,12 @@ a {
   }
 }
 
+small {
+  a {
+    color: $grey-body !important;
+  }
+}
+
 .input, .select select {
   &:focus {
     border-color: $primary;
