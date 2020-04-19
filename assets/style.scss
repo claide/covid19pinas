@@ -337,8 +337,9 @@ a {
 }
 
 small {
+  color: $grey-body;
   a {
-    color: $grey-body !important;
+    color: $grey-body;
   }
 }
 

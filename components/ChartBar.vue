@@ -107,6 +107,8 @@ export default {
             categoryPercentage: 1.0,
             type: 'horizontalBar',
             backgroundColor: '#FEBC2C',
+            outerGlowWidth: 2,
+            outerGlowColor: '#FEBC2C',
             data: [
               group1.length,
               group2.length,

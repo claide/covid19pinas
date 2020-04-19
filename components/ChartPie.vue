@@ -61,6 +61,8 @@ export default {
         datasets: [
           {
             fill: true,
+            outerGlowWidth: 2,
+            outerGlowColor: '#FEBC2C',
             borderWidth: '1px',
             borderColor: '#202125',
             backgroundColor: ['#FEBC2C', '#01B075', '#FD413C'],

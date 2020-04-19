@@ -6,6 +6,8 @@
 
 <script>
 import Axios from 'axios'
+import 'chartjs-plugin-style'
+
 export default {
   name: 'LineChartContainer',
   data() {
@@ -71,6 +73,8 @@ export default {
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
+              outerGlowWidth: 2,
+              outerGlowColor: '#FEBC2C',
               // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_confirmed)
@@ -85,6 +89,8 @@ export default {
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
+              outerGlowWidth: 2,
+              outerGlowColor: '#FEBC2C',
               // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_deaths)
@@ -97,6 +103,8 @@ export default {
               pointRadius: 0,
               fill: false,
               borderWidth: 2,
+              outerGlowWidth: 2,
+              outerGlowColor: '#FEBC2C',
               data: responseData
                 .map(timeline => timeline.new_recovered)
                 .filter(Number)
