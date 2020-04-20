@@ -15,12 +15,29 @@
 </template>
 
 <script>
-import regionalData from 'static/regional.json'
-
+import Axios from 'axios'
 export default {
   data() {
     return {
-      tableData: regionalData
+      tableData: [],
+      loading: false
+    }
+  },
+  mounted() {
+    this.loadDb()
+  },
+  methods: {
+    async loadDb() {
+      this.loading = true
+      const messageRef = this.$fireDb.ref('cases')
+      Axios.get(messageRef.toString() + '.json').then(response => {
+        const data = response.data
+        let ncr = data.filter(item => item.RegionRes === 'NCR').length
+        let ilocos = data.filter(item => item.RegionRes === 'Ilocos').length
+        let ilocosNorte = data.filter(item => item.RegionRes === 'San Fernando')
+          .length
+        console.log('ilocos :', ilocos)
+      })
     }
   }
 }

@@ -4,11 +4,13 @@
       <div class="card-content">
         <p class="card-title">COVID19 cases in Philippines</p>
         <div class="is-spacer-sm"></div>
+        <div class="is-spacer-sm"></div>
         <!-- Begin table -->
         <b-table
           :data="caseReports"
           :loading="isLoading"
           :paginated="true"
+          backend-pagination
           :hoverable="true"
           :total="total"
           :per-page="perPage"
@@ -44,11 +46,13 @@
         </small>
       </div>
     </div>
+    <regionalCases />
   </section>
 </template>
 
 <script>
 import Axios from 'axios'
+import regionalCases from '@/components/CaseRegional'
 
 export default {
   name: 'Case-reports',
@@ -57,6 +61,7 @@ export default {
       title: 'Cases'
     }
   },
+  components: { regionalCases },
   data() {
     return {
       caseReports: [],
