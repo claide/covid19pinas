@@ -119,6 +119,10 @@ export default {
         }
       }
     ],
+    ['nuxt-gmaps', {
+      key: process.env.GMAP_KEY,
+      //you can use libraries: ['places']
+    }],
   ],
 
   env: {
@@ -131,6 +135,7 @@ export default {
     appId: process.env.APP_ID,
     measurementId: process.env.MEASUREMENT_ID,
     databaseSecret: process.env.DATABASE_SECRET,
+    key: process.env.GMAP_KEY,
   },
 
   // axios: {

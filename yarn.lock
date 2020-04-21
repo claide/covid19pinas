@@ -3803,6 +3803,11 @@ es6-object-assign@^1.1.0:
   resolved "https://registry.yarnpkg.com/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
   integrity sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
 
+es6-promise@^4.0.5:
+  version "4.2.8"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
+  integrity sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==
+
 escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
@@ -4546,6 +4551,13 @@ google-gax@^1.13.0:
     retry-request "^4.0.0"
     semver "^6.0.0"
     walkdir "^0.4.0"
+
+google-maps-api-loader@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/google-maps-api-loader/-/google-maps-api-loader-1.1.1.tgz#b600602451300521ba1b5d7493e7071d7931ac00"
+  integrity sha512-+bxumYl6WCxKDjygLFF2FxrNyKIB0QgWKFb+EZ6F5wt/MoU2cm/8se9uQ0o1nY7389F2qe6ocdpSFn1bKQAD5w==
+  dependencies:
+    es6-promise "^4.0.5"
 
 google-p12-pem@^2.0.0:
   version "2.0.4"
@@ -6249,6 +6261,11 @@ node-gyp@^3.8.0:
     tar "^2.0.0"
     which "1"
 
+node-js-marker-clusterer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/node-js-marker-clusterer/-/node-js-marker-clusterer-1.0.0.tgz#d09a1e963ebc5f6c162ece8510e9e680bba097a9"
+  integrity sha1-0Joelj68X2wWLs6FEOnmgLugl6k=
+
 node-libs-browser@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/node-libs-browser/-/node-libs-browser-2.2.1.tgz#b64f513d18338625f90346d27b0d235e631f6425"
@@ -6426,6 +6443,14 @@ nuxt-buefy@^0.3.2:
   integrity sha512-16m/ME6nHvQTI9Fk+3N4RcCXojkVNOaD7pwICrdgHXu9ilcMF3qPnSglx0TcPtJuJ31fdp/Rcwinjshnkz0V1w==
   dependencies:
     buefy "^0.8.15"
+
+nuxt-gmaps@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/nuxt-gmaps/-/nuxt-gmaps-1.1.9.tgz#707c8d5708f97d752b56ced1672c82ef3965f667"
+  integrity sha512-KD0U7QIcEhgattuKo+jnuhl8H4tKQzQzZSozbZ3fiwXtaMZuPcuAUKYVveVi1hOMPbNPauoZ0rRxiHZJTTpKfQ==
+  dependencies:
+    google-maps-api-loader "^1.1.1"
+    node-js-marker-clusterer "^1.0.0"
 
 nuxt-leaflet@^0.0.21:
   version "0.0.21"
