@@ -40,19 +40,17 @@
         <small class="has-text-body">
           Source:
           <a
-            href="https://www.doh.gov.ph/covid-19/case-tracker"
+            href="https://ncovtracker.doh.gov.ph/"
             class="has-text-body"
           >Department of Health Philippines</a>
         </small>
       </div>
     </div>
-    <regionalCases />
   </section>
 </template>
 
 <script>
 import Axios from 'axios'
-import regionalCases from '@/components/CaseRegional'
 
 export default {
   name: 'Case-reports',
@@ -61,7 +59,6 @@ export default {
       title: 'Cases'
     }
   },
-  components: { regionalCases },
   data() {
     return {
       caseReports: [],

@@ -188,6 +188,7 @@
               </SimpleCard>
             </div>
           </div>
+          <regionalCases />
         </div>
       </div>
     </section>
@@ -202,6 +203,7 @@ import Chart from '~/components/Chart'
 import ChartPie from '~/components/ChartPie'
 import ChartBar from '~/components/ChartBar'
 import ICountUp from 'vue-countup-v2'
+import regionalCases from '@/components/CaseRegional'
 
 export default {
   name: 'HomePage',
@@ -223,7 +225,8 @@ export default {
     Chart,
     ChartPie,
     ChartBar,
-    ICountUp
+    ICountUp,
+    regionalCases
   },
   data() {
     return {

@@ -17,8 +17,13 @@ $loading-background: #212529;
 $yellow: #FEBC2C;
 
 $table-sticky-header-height: 800px;
+$table-color: $white;
+$table-background-color: $dark-mild;
+$table-row-hover-background-color: #404040;
 
 @import "~bulma-divider";
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
 
 // Styles
 html,body, .footer {
@@ -242,6 +247,12 @@ a {
 
 .mdi-48px.mdi:before {
   font-size: 58px;
+}
+
+.table {
+  th {
+    border: 1px solid #4E5358;
+  }
 }
 
 .b-table {

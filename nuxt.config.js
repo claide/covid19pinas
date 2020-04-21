@@ -96,6 +96,7 @@ export default {
   */
   modules: [
     'nuxt-buefy',
+    '@nuxtjs/style-resources',
     'nuxt-leaflet',
     '@nuxtjs/dotenv',
     '@nuxtjs/proxy',
