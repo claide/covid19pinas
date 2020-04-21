@@ -44,6 +44,12 @@
 import Axios from 'axios'
 
 export default {
+  name: 'Map',
+  head() {
+    return {
+      title: 'Map'
+    }
+  },
   data() {
     return {
       currentLocation: {},
