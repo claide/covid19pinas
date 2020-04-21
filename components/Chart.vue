@@ -48,12 +48,14 @@ export default {
         legend: {
           display: true,
           labels: {
-            usePointStyle: true
+            usePointStyle: true,
+            boxWidth: 6
           }
         },
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        responsive: true
       },
-      height: 350
+      height: 249
     }
   },
   async mounted() {
@@ -66,15 +68,15 @@ export default {
           datasets: [
             {
               label: 'Confirmed',
-              backgroundColor: '#FEBC2C',
-              borderColor: '#FEBC2C',
+              backgroundColor: '#713bdb',
+              borderColor: '#713bdb',
               pointRadius: 0,
               fill: false,
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
               outerGlowWidth: 2,
-              outerGlowColor: '#FEBC2C',
+              outerGlowColor: '#713bdb',
               // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_confirmed)
@@ -82,15 +84,15 @@ export default {
             },
             {
               label: 'Deaths',
-              backgroundColor: '#FD413C',
-              borderColor: '#FD413C',
+              backgroundColor: '#db713b',
+              borderColor: '#db713b',
               pointRadius: 0,
               fill: false,
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
               outerGlowWidth: 2,
-              outerGlowColor: '#FEBC2C',
+              outerGlowColor: '#db713b',
               // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_deaths)
@@ -98,13 +100,13 @@ export default {
             },
             {
               label: 'Recovered',
-              backgroundColor: '#01B075',
-              borderColor: '#01B075',
+              backgroundColor: '#3bdb71',
+              borderColor: '#3bdb71',
               pointRadius: 0,
               fill: false,
               borderWidth: 2,
               outerGlowWidth: 2,
-              outerGlowColor: '#FEBC2C',
+              outerGlowColor: '#3bdb71',
               data: responseData
                 .map(timeline => timeline.new_recovered)
                 .filter(Number)

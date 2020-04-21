@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar wrapper-class="container is-fluid" type="is-dark" :fixed-top="true">
+    <b-navbar wrapper-class="container" type="is-light" :fixed-top="true">
       <template slot="brand">
         <b-navbar-item tag="router-link" to="/">COVIDPH.LIVE</b-navbar-item>
       </template>
@@ -37,7 +37,7 @@
     </b-navbar>
 
     <section class="main-content">
-      <div class="container is-fluid">
+      <div class="container">
         <nuxt />
       </div>
     </section>

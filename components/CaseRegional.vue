@@ -4,19 +4,23 @@
       <p class="card-title">Cases by Region</p>
       <div class="is-spacer-sm"></div>
 
-      <b-table :data="regions">
+      <b-table :data="regions" :sticky-header="true" hoverable>
         <template slot-scope="props">
-          <b-table-column field="name" label="Region name">{{ props.row.name }}</b-table-column>
+          <b-table-column
+            class="has-text-black"
+            field="name"
+            label="Region name"
+          >{{ props.row.name }}</b-table-column>
           <b-table-column field="confirmed" label="Total confirmed">{{ props.row.confirmed }}</b-table-column>
           <b-table-column field="deaths" label="Total deaths">{{ props.row.deaths }}</b-table-column>
           <b-table-column field="recovered" label="Total recovered">{{ props.row.recovered }}</b-table-column>
         </template>
         <template slot="footer">
-          <small class="has-text-body">
+          <small class="has-text-grey">
             Source:
             <a
               href="https://ncovtracker.doh.gov.ph/"
-              class="has-text-body"
+              class="has-text-grey"
             >Department of Health Philippines</a>
           </small>
         </template>

@@ -2,26 +2,34 @@
   <section class="section">
     <div class="columns is-centered">
       <div class="column is-8">
-        <SimpleCard title="About the website">
+        <SimpleCard title="About the Website">
           <div class="is-spacer-sm"></div>
-          <p>This website gathers data from credible sources, official reports and outlets of government to provide the number of COVID19 cases, deaths and recoveries within the Philippines. As new situation is published, this website will be updated regularly.</p>
-          <p>
+          <p class="has-text-black">
+            This website gathers data from credible sources, official reports and outlets of government to provide the number of COVID19 cases, deaths and recoveries within the Philippines.
+            All COVID-19 data in this website changes quickly and might not reflect some cases that is still being reported.
+          </p>
+          <p class="has-text-weight-bold has-text-black">Why data is different from another sources?</p>
+          <p class="has-text-black">
+            There are different sources which monitor and aggregate data on coronavirus.
+            We download at various times and probably have various ways to collect data.
+          </p>
+          <p class="has-text-black">
             Feedbacks and corrections are welcome. Email me at
             <a
               class="has-text-primary"
               href="mailto:magallen.fc@gmail.com"
             >magallen.fc@gmail.com</a>
           </p>
-          <div class="is-spacer"></div>
-          <p class="has-text-weight-bold">Sources</p>
+          <div class="is-spacer-sm"></div>
+          <p class="has-text-weight-bold has-text-black">Sources</p>
           <ul>
             <li>(WHO) World Health Organization</li>
             <li>
               <a
                 class="has-text-primary"
-                href="https://www.doh.gov.ph/"
+                href="https://www.doh.gov.ph/covid19tracker"
                 target="_blank"
-              >(DOH) Department of Health Philippines</a>
+              >DOH COVID-19 Tracker</a>
             </li>
             <li>
               <a
@@ -42,8 +50,8 @@
             </li>
           </ul>
           <div class="is-spacer-sm"></div>
-          <p class="has-text-weight-bold">Show your support</p>
-          <p>
+          <p class="has-text-weight-bold has-text-black">Show your Support</p>
+          <p class="has-text-black">
             Love the tracker? Express your support by donating any amount. Your donation can help to upgrade server hosting, domain and site's maintenance.
             <br />Stay safe all!
           </p>

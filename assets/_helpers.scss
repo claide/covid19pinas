@@ -1,0 +1,61 @@
+// Helpers
+.has-text-white {
+  color: $white !important;
+}
+
+.has-text-black {
+  color: $black !important;
+}
+
+.has-text-blue {
+  color: $blue !important;
+}
+
+.has-text-orange {
+  color: $orange !important;
+}
+
+.has-text-grey {
+  color: $grey !important;
+}
+
+.has-text-green {
+  color: $green !important;
+}
+
+.has-text-primary {
+  color: $primary !important;
+}
+
+.is-spacer {
+  margin-bottom: 4em;
+}
+
+.is-spacer-xs {
+  margin-bottom: 1.2em;
+}
+
+.is-spacer-sm {
+  margin-bottom: 2em;
+}
+
+.has-padding-lg {
+  padding: 2.4em;
+}
+
+.has-bg-green {
+  background-color: $green !important;
+  color: $white !important;
+}
+
+.has-bg-red {
+  background-color: $red !important;
+  color: $white !important;
+}
+
+.column-reverse-mobile {
+  @media (max-width: 769px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

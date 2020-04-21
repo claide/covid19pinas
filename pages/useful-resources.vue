@@ -3,12 +3,12 @@
     <div class="columns">
       <div class="column is-3">
         <div class="content">
-          <h3 class="has-text-white">COVID19 hotlines</h3>
+          <h3 class="has-text-black">COVID19 hotlines</h3>
           <ul>
             <li>1555 (PLDT, Smart, Sun, and TnT)</li>
             <li>(02) 894-26843 (894-COVID)</li>
           </ul>
-          <h3 class="has-text-white">Resources</h3>
+          <h3 class="has-text-black">Resources</h3>
           <div class="columns">
             <div class="column">
               <ul>

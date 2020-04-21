@@ -1,0 +1,435 @@
+html,body, .footer {
+  background-color: $grey-light;
+  color: $grey;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 100px;
+}
+
+.footer {
+  padding: 2em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100px;
+
+  a {
+    color: $primary;
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}
+
+a {
+  color: $primary;
+  &:hover, &:focus {
+    color: $primary !important;
+  }
+
+  &.has-text-primary {
+    &:hover, &:focus {
+      color: $primary !important;
+    }
+  }
+}
+
+.navbar {
+  min-height: 5.25rem;
+  &.is-light {
+    background-color: $white;
+    box-shadow: none;
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+    margin-left: 0 !important;
+
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-item {
+      color: $primary !important;
+      padding: 1em;
+      font-size: 1.5em;
+
+      &:hover, &:focus, &:active {
+        background-color: transparent !important;
+      }
+    }
+
+  }
+
+  .navbar-menu {
+    @media (max-width: 1023px) {
+      background-color: $white;
+    }
+
+    .navbar-item {
+      color: $grey !important;
+    }
+  }
+
+  .navbar-item {
+    padding: 1em;
+    font-size: 1.1em;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+
+    &.nuxt-link-exact-active {
+      color: $primary !important;
+    }
+
+    &:hover {
+      background-color: transparent !important;
+      color: $primary !important;
+    }
+  }
+}
+
+.card {
+  background-color: $white;
+  color: $grey;
+  box-shadow: none;
+  border-radius: 10px;
+
+  &.is-news {
+    margin-bottom: 2em;
+  }
+
+  .card-title {
+    font-size: 1.2em;
+    color: $black;
+    font-weight: 600;
+  }
+
+  .card-content {
+    color: $grey;
+    padding: 2em;
+  }
+
+  .content {
+    h1 {
+      color: $black;
+      font-weight: bold;
+      &:not(:first-child) {
+        margin-top: 14px;
+      }
+    }
+  }
+
+  &.is-horizontal {
+    flex-direction: row;
+    display: flex;
+    flex-basis: 50ex;
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    .card-image {
+      flex: 2;
+      flex-shrink: 2;
+
+      .image {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+
+        @media(max-width: 767px) {
+          height: 120px;
+          top: 2.5em;
+        }
+
+        img {
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+
+    .card-content {
+      flex: 3;
+	    flex-shrink: 3;
+    }
+  }
+}
+
+.content {
+
+  h1, h2, h3, h4 {
+    color: $white;
+  }
+
+  &.has-text-grey {
+    h1, h3, h4 {
+      color: $grey !important;
+    }
+  }
+
+  ul {
+    margin-left: 0;
+    list-style: none;
+  }
+}
+
+.input {
+  box-shadow: none;
+  border-color: $grey;
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: none;
+  }
+}
+
+.is-divider-vertical {
+  margin: 1rem 0;
+
+  &:before {
+    @media (min-width: 769px) {
+      border-left: .1rem solid $grey;
+    }
+  }
+
+  @media (max-width: 767px) {
+    border-top: .1rem solid $grey;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  h1 {
+    margin-top: 14px;
+  }
+}
+
+.mdi-48px.mdi:before {
+  font-size: 58px;
+}
+
+.table {
+  th {
+    border: 1px solid #4E5358;
+  }
+}
+
+.b-table {
+  .table {
+    background-color: $white;
+    thead {
+      th {
+        color: $black;
+        border: 1px solid $grey;
+        border-width: 0 0 1px;
+      }
+    }
+    tbody {
+      td {
+        color: $black;
+        font-size: 1em;
+        border: 1px solid $grey;
+        border-width: 0 0 1px;
+      }
+    }
+  }
+
+  .is-hoverable tbody tr:not(.is-selected):hover {
+    background-color: $grey-light;
+  }
+}
+
+.pagination-link {
+  background-color: transparent;
+  border-color: $primary !important;
+  color: $grey !important;
+
+  &:hover {
+    color: $white !important;
+  }
+}
+
+.pagination-previous:hover, .pagination-previous:focus, .pagination-next:hover, .pagination-next:focus, .pagination-link:hover, .pagination-link:focus {
+  color: $white !important;
+}
+
+.pagination-link.is-current {
+  background-color: $primary;
+  border-color: $primary !important;
+  color: $white !important;
+}
+
+.pagination-previous[disabled], .pagination-next[disabled], .pagination-link[disabled] {
+  background-color: $grey;
+}
+
+.input, .taginput .taginput-container.is-focusable, .textarea, .select select {
+  background-color: $white;
+  border-color: $grey;
+  color: $grey;
+  border-radius: 25px;
+
+  &:hover {
+    border-color: $grey;
+  }
+}
+
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: $primary;
+}
+
+.select:not(.is-multiple):not(.is-loading):hover::after {
+  border-color: $primary;
+}
+
+.select select option {
+  color: $grey;
+}
+
+.b-table .table-wrapper.has-mobile-cards tr:not(.detail):not(.is-empty):not(.table-footer) td {
+  @media (max-width: 768px) {
+    border-bottom: 1px solid $grey;
+  }
+}
+
+.b-table .table-wrapper.has-sticky-header tr:first-child th {
+  background-color: $white;
+}
+
+.pagination-previous, .pagination-next, .pagination-link {
+  border-color: #4e5358;
+  background-color: transparent;
+  color: $white;
+
+  &:hover, &:focus {
+    border-color: $primary;
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+.pagination-previous[disabled], .pagination-next[disabled], .pagination-link[disabled] {
+  border-color: $grey;
+  color: $grey;
+}
+
+.button {
+  &.is-primary {
+    background-color: $primary;
+
+    &:focus, &:active, &:hover {
+      background-color: $primary !important;
+      color: $white !important;
+    }
+  }
+}
+
+small {
+  color: $grey;
+  a {
+    color: $grey;
+  }
+}
+
+.input, .select select {
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+.switch input[type=checkbox]:checked + .check {
+  background: $primary;
+  &:hover {
+    background: darken($primary, 10%);
+  }
+}
+
+.news-title {
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+  a {
+    color: $black;
+    font-weight: bold;
+
+    &:hover, &:focus {
+      color: $primary;
+    }
+  }
+}
+
+.news-link {
+  &:hover, &:focus {
+    color: $primary !important;
+  }
+}
+
+// .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+//   background: $dark-mild !important;
+//   color: $white !important;
+// }
+
+// .leaflet-container a.leaflet-popup-close-button {
+//   padding: 10px 20px 0px 0 !important;
+// }
+
+// .leaflet-popup-content {
+//   table {
+//     td {
+//       font-size: 16px !important;
+//       border: 1px solid $grey;
+//       border-width: 0 0 1px;
+//     }
+//   }
+// }
+
+.b-table .table-wrapper.has-mobile-cards tr:not([class*="is-"]) {
+  @media(max-width: 768px) {
+    background: $white;
+  }
+}
+
+.table tfoot th {
+  border-width: 1px 0 0;
+  border-color: $grey;
+}
+
+.is-control {
+  @media(max-width: 768px) {
+    margin-top: 1em;
+    text-align: left !important;
+  }
+}
+
+.is-icon-nav {
+  fill: $primary;
+}
+
+// Map styles
+#map-wrap {
+  height: 700px;
+}
+
+a {
+
+  &.has-text-primary {
+    &:hover {
+      color: $primary !important;
+    }
+  }
+}

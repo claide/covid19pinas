@@ -7,9 +7,13 @@
       :width="width"
       :height="height"
     />
-    <small class="has-text-body">
+    <br />
+    <small class="has-text-grey">
       Source:
-      <a href="https://www.doh.gov.ph/covid-19/case-tracker">DOH Philippines</a>
+      <a
+        class="has-text-grey"
+        href="https://www.doh.gov.ph/covid-19/case-tracker"
+      >DOH Philippines</a>
     </small>
   </div>
 </template>
@@ -28,7 +32,8 @@ export default {
           display: true,
           position: 'right',
           labels: {
-            usePointStyle: true
+            usePointStyle: true,
+            boxWidth: 6
           }
         },
         maintainAspectRatio: false,
@@ -61,11 +66,8 @@ export default {
         datasets: [
           {
             fill: true,
-            outerGlowWidth: 2,
-            outerGlowColor: '#FEBC2C',
-            borderWidth: '1px',
-            borderColor: '#202125',
-            backgroundColor: ['#FEBC2C', '#01B075', '#FD413C'],
+            borderWidth: '0px',
+            backgroundColor: ['#713bdb', '#3bdb71', '#db713b'],
             data: [male.length, female.length, tba.length]
           }
         ]

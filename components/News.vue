@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="content">
-      <h3 class="has-text-white">COVID19 Latest News</h3>
+      <h3 class="has-text-black">COVID19 Latest News</h3>
     </div>
     <div v-for="news in newsData" :key="newsData.title" class="card is-news is-horizontal">
       <b-loading :is-full-page="false" :active.sync="isLoading"></b-loading>
@@ -18,7 +18,7 @@
           <a :href="news.url" target="_blank" class="has-text-body news-link">{{ news.source.name }}</a>
           &#9679; {{ news.publishedAt | moment('LLLL') }}
         </p>
-        <p class="has-text-body">{{ news.content | trunc(255, '...') }}</p>
+        <p class="has-text-black">{{ news.content | trunc(255, '...') }}</p>
         <!-- <p>{{ news.content }}</p> -->
         <div class="is-spacer-sm"></div>
         <a

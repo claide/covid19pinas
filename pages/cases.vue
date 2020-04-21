@@ -25,8 +25,8 @@
             <b-table-column field="DateRepConf" label="Date confirmed">{{ props.row.DateRepConf }}</b-table-column>
             <b-table-column field="Age" label="Age" sortable>{{ props.row.Age }}</b-table-column>
             <b-table-column field="Sex" label="Gender">{{ props.row.Sex }}</b-table-column>
-            <b-table-column field="RegionRes" label="Region" searchable>{{ props.row.RegionRes }}</b-table-column>
-            <b-table-column field="ProvCityRes" label="Province" searchable>
+            <b-table-column field="RegionRes" label="Region">{{ props.row.RegionRes }}</b-table-column>
+            <b-table-column field="ProvCityRes" label="Province">
               <span v-html="props.row.ProvCityRes"></span>
             </b-table-column>
             <b-table-column
@@ -35,15 +35,17 @@
               :class="statType(props.row.RemovalType)"
             >{{ ((props.row.RemovalType.length > 0) ? props.row.RemovalType : '-') }}</b-table-column>
           </template>
+          <template slot="bottom-left">
+            <small class="has-text-grey">
+              Source:
+              <a
+                href="https://www.doh.gov.ph/covid19tracker"
+                class="has-text-grey"
+              >Department of Health Philippines</a>
+            </small>
+          </template>
         </b-table>
         <!-- End table -->
-        <small class="has-text-body">
-          Source:
-          <a
-            href="https://ncovtracker.doh.gov.ph/"
-            class="has-text-body"
-          >Department of Health Philippines</a>
-        </small>
       </div>
     </div>
   </section>

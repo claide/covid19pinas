@@ -1,47 +1,47 @@
 <template>
   <section class="section">
-    <div class="content">
-      <h3 class="has-text-white">Map</h3>
-    </div>
-    <div class="map-container">
-      <GMap
-        ref="gMap"
-        :center="mapCenter"
-        :options="{fullscreenControl: false, disableDefaultUI: true, styles: mapStyle}"
-        :zoom="6"
-        scaleControl="false"
-      >
-        <GMapMarker
-          v-for="region in regions"
-          :position="{lat: region.position.lat, lng: region.position.lng}"
-          @click="currentLocation = region"
+    <SimpleCard title="Map">
+      <div class="is-spacer-sm"></div>
+      <div class="map-container">
+        <GMap
+          ref="gMap"
+          :center="mapCenter"
+          :options="{fullscreenControl: false, disableDefaultUI: true, styles: mapStyle}"
+          :zoom="6"
+          scaleControl="false"
         >
-          <GMapInfoWindow>
-            <p class="has-text-weight-bold has-text-black">{{ region.name }}</p>
-            <br />
-            <ul>
-              <li class="has-text-black">
-                Confirmed:
-                <span class="has-text-weight-bold">{{ region.confirmed }}</span>
-              </li>
-              <li class="has-text-black">
-                Recovered:
-                <span class="has-text-weight-bold">{{ region.recovered }}</span>
-              </li>
-              <li class="has-text-black">
-                Deaths:
-                <span class="has-text-weight-bold">{{ region.deaths }}</span>
-              </li>
-            </ul>
-          </GMapInfoWindow>
-        </GMapMarker>
-      </GMap>
-    </div>
+          <GMapMarker
+            v-for="region in regions"
+            :position="{lat: region.position.lat, lng: region.position.lng}"
+            @click="currentLocation = region"
+          >
+            <GMapInfoWindow>
+              <p class="has-text-weight-bold has-text-black">{{ region.name }}</p>
+              <ul>
+                <li class="has-text-black">
+                  Confirmed:
+                  <span class="has-text-weight-bold">{{ region.confirmed }}</span>
+                </li>
+                <li class="has-text-black">
+                  Recovered:
+                  <span class="has-text-weight-bold">{{ region.recovered }}</span>
+                </li>
+                <li class="has-text-black">
+                  Deaths:
+                  <span class="has-text-weight-bold">{{ region.deaths }}</span>
+                </li>
+              </ul>
+            </GMapInfoWindow>
+          </GMapMarker>
+        </GMap>
+      </div>
+    </SimpleCard>
   </section>
 </template>
 
 <script>
 import Axios from 'axios'
+import SimpleCard from '@/components/SimpleCard'
 
 export default {
   name: 'Map',
@@ -50,6 +50,7 @@ export default {
       title: 'Map'
     }
   },
+  components: { SimpleCard },
   data() {
     return {
       currentLocation: {},

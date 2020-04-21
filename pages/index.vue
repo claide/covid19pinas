@@ -1,198 +1,232 @@
 <template>
-  <div>
-    <section class="section">
-      <div class="columns is-variable is-5 column-reverse-mobile">
-        <div class="column is-3-desktop">
-          <div class="content">
-            <h2 class="has-text-white">Worldwide Status</h2>
-            <p>Last updated : {{ resultGlobal.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
-          </div>
-          <div class="is-spacer-sm"></div>
-          <SimpleCard title="Coronavirus Cases">
-            <div class="flex">
-              <div class="flex-item">
-                <h1>
-                  <ICountUp :delay="1000" :endVal="resultGlobal.confirmed" :options="countOptions" />
-                </h1>
-                <p class="has-text-red">
-                  <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                  {{ resultGlobal.new_confirmed.toLocaleString() }} as of today
-                </p>
-              </div>
-              <div class="flex-item has-text-grey">
-                <b-icon icon="hospital" size="is-large"></b-icon>
-              </div>
-            </div>
-          </SimpleCard>
-          <div class="is-spacer-sm"></div>
-          <SimpleCard title="Deaths">
-            <div class="flex">
-              <div class="flex-item">
-                <h1>
-                  <ICountUp :delay="1000" :endVal="resultGlobal.deaths" :options="countOptions" />
-                </h1>
-                <p class="has-text-red">
-                  <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                  {{ resultGlobal.new_deaths.toLocaleString() }} as of today
-                </p>
-              </div>
-              <div class="flex-item has-text-grey">
-                <b-icon icon="skull" size="is-large"></b-icon>
-              </div>
-            </div>
-          </SimpleCard>
-          <div class="is-spacer-sm"></div>
-          <SimpleCard title="Recovered">
-            <div class="flex">
-              <div class="flex-item">
-                <h1>
-                  <ICountUp :delay="1000" :endVal="resultGlobal.recovered" :options="countOptions" />
-                </h1>
-                <p class="has-text-green">
-                  <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                  {{ resultGlobal.new_recovered.toLocaleString() }} as of today
-                </p>
-              </div>
-              <div class="flex-item has-text-grey">
-                <b-icon icon="cards-heart" size="is-large"></b-icon>
-              </div>
-            </div>
-          </SimpleCard>
+  <section class="section">
+    <div class="content">
+      <h2 class="has-text-black">Philippines Overview</h2>
+      <p>Last updated : {{ resultPh.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
+    </div>
+    <div class="columns">
+      <!-- <div class="column is-3-desktop">
+        <div class="content">
+          <h2 class="has-text-white">Worldwide Status</h2>
+          <p>Last updated : {{ resultGlobal.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
         </div>
-        <div class="is-spacer"></div>
+        <div class="is-spacer-sm"></div>
+        <SimpleCard title="Coronavirus Cases">
+          <div class="flex">
+            <div class="flex-item">
+              <h1>
+                <ICountUp :delay="1000" :endVal="resultGlobal.confirmed" :options="countOptions" />
+              </h1>
+              <p class="has-text-red">
+                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
+                {{ resultGlobal.new_confirmed.toLocaleString() }} as of today
+              </p>
+            </div>
+            <div class="flex-item has-text-grey">
+              <b-icon icon="hospital" size="is-large"></b-icon>
+            </div>
+          </div>
+        </SimpleCard>
+        <div class="is-spacer-sm"></div>
+        <SimpleCard title="Deaths">
+          <div class="flex">
+            <div class="flex-item">
+              <h1>
+                <ICountUp :delay="1000" :endVal="resultGlobal.deaths" :options="countOptions" />
+              </h1>
+              <p class="has-text-red">
+                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
+                {{ resultGlobal.new_deaths.toLocaleString() }} as of today
+              </p>
+            </div>
+            <div class="flex-item has-text-grey">
+              <b-icon icon="skull" size="is-large"></b-icon>
+            </div>
+          </div>
+        </SimpleCard>
+        <div class="is-spacer-sm"></div>
+        <SimpleCard title="Recovered">
+          <div class="flex">
+            <div class="flex-item">
+              <h1>
+                <ICountUp :delay="1000" :endVal="resultGlobal.recovered" :options="countOptions" />
+              </h1>
+              <p class="has-text-green">
+                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
+                {{ resultGlobal.new_recovered.toLocaleString() }} as of today
+              </p>
+            </div>
+            <div class="flex-item has-text-grey">
+              <b-icon icon="cards-heart" size="is-large"></b-icon>
+            </div>
+          </div>
+        </SimpleCard>
+      </div>-->
+      <div class="is-spacer"></div>
 
-        <div class="column">
-          <div class="content">
-            <h2 class="has-text-white">Philippines Overview</h2>
-            <p>Last updated : {{ resultPh.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
+      <div class="column is-9">
+        <div class="is-spacer-sm"></div>
+        <div class="columns is-variable is-3">
+          <div class="column">
+            <SimpleCard title="Confirmed">
+              <h1 class="is-pulled-left">
+                <ICountUp
+                  :delay="1000"
+                  :endVal="resultPh.latest_data.confirmed"
+                  :options="countOptions"
+                />
+              </h1>
+              <p
+                class="has-text-primary is-pulled-right"
+                style="margin-top: 14px;"
+              >{{ others.casesPerOneMillion }} cases / 1M</p>
+              <div class="is-clearfix"></div>
+              <p class="has-text-primary">
+                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
+                {{ resultPh.today.confirmed.toLocaleString() }} as of today
+              </p>
+            </SimpleCard>
           </div>
-          <div class="is-spacer-sm"></div>
-          <div class="columns columns is-variable is-3">
-            <div class="column">
-              <div class="card">
-                <div class="card-content">
-                  <div class="columns">
-                    <div class="column">
-                      <div class="content">
-                        <p class="card-title is-marginless">Confirmed Cases</p>
-                        <h1 class="is-pulled-left">
-                          <ICountUp
-                            :delay="1000"
-                            :endVal="resultPh.latest_data.confirmed"
-                            :options="countOptions"
-                          />
-                        </h1>
-                        <p
-                          class="has-text-red is-pulled-right"
-                          style="margin-top: 14px;"
-                        >{{ others.casesPerOneMillion }} cases / 1M</p>
-                        <div class="is-clearfix"></div>
-                        <p class="has-text-red">
-                          <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                          {{ resultPh.today.confirmed.toLocaleString() }} as of today
-                        </p>
-                      </div>
-                    </div>
-                    <div class="is-divider-vertical"></div>
-                    <div class="column">
-                      <div class="content">
-                        <p class="card-title is-marginless">Deaths</p>
-                        <h1 class="is-pulled-left">
-                          <ICountUp
-                            :delay="1000"
-                            :endVal="resultPh.latest_data.deaths"
-                            :options="countOptions"
-                          />
-                        </h1>
-                        <p
-                          class="has-text-red is-pulled-right"
-                          style="margin-top: 14px;"
-                        >( {{ resultPh.latest_data.calculated.death_rate.toFixed(2) }}% death rate)</p>
-                        <div class="is-clearfix"></div>
-                        <p class="has-text-red">
-                          <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                          {{ resultPh.today.deaths.toLocaleString() }} as of today
-                        </p>
-                      </div>
-                    </div>
-                    <div class="is-divider-vertical"></div>
-                    <div class="column">
-                      <div class="content">
-                        <p class="card-title is-marginless">Recovered</p>
-                        <h1 class="is-pulled-left">
-                          <ICountUp
-                            :delay="1000"
-                            :endVal="resultPh.latest_data.recovered"
-                            :options="countOptions"
-                          />
-                        </h1>
-                        <p
-                          class="has-text-green is-pulled-right"
-                          style="margin-top: 14px;"
-                        >( {{ resultPh.latest_data.calculated.recovery_rate.toFixed(2) }}% recovery rate)</p>
-                        <div class="is-clearfix"></div>
-                        <p v-if="resultPh.today.recovered" class="has-text-green">
-                          <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                          {{ resultPh.today.recovered.toLocaleString() }} as of today
-                        </p>
-                        <p v-else class="has-text-green">
-                          <b-icon icon="arrow-right" size="is-small"></b-icon>0 as of today
-                        </p>
-                      </div>
-                    </div>
-                    <div class="is-divider-vertical"></div>
-                    <div class="column">
-                      <div class="content">
-                        <ul class>
-                          <li class="has-text-body flex">
-                            <div>Critical</div>
-                            <div>{{ others.critical }}</div>
-                          </li>
-                          <li class="has-text-body flex">
-                            <div>Deaths / 1M</div>
-                            <div>{{ others.deathsPerOneMillion.toLocaleString() }}</div>
-                          </li>
-                          <li class="has-text-body flex">
-                            <div>Total tested</div>
-                            <div>{{ others.tests.toLocaleString() }}</div>
-                          </li>
-                          <li class="has-text-body flex">
-                            <div>Tests / 1M</div>
-                            <div>{{ others.testsPerOneMillion.toLocaleString() }}</div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+          <div class="column">
+            <SimpleCard title="Deaths">
+              <h1 class="is-pulled-left">
+                <ICountUp
+                  :delay="1000"
+                  :endVal="resultPh.latest_data.deaths"
+                  :options="countOptions"
+                />
+              </h1>
+              <p
+                class="has-text-orange is-pulled-right"
+                style="margin-top: 14px;"
+              >( {{ resultPh.latest_data.calculated.death_rate.toFixed(2) }}% death rate)</p>
+              <div class="is-clearfix"></div>
+              <p class="has-text-orange">
+                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
+                {{ resultPh.today.deaths.toLocaleString() }} as of today
+              </p>
+            </SimpleCard>
           </div>
-          <div class="columns is-variable is-4">
-            <div class="column is-6">
-              <SimpleCard title="Cases per day">
-                <div class="is-spacer-sm"></div>
-                <chart />
-              </SimpleCard>
-            </div>
-            <div class="column is-3">
-              <SimpleCard title="Cases by gender">
-                <div class="is-spacer-sm"></div>
-                <ChartPie />
-              </SimpleCard>
-            </div>
-            <div class="column is-3">
-              <SimpleCard title="Cases by age">
-                <div class="is-spacer-sm"></div>
-                <ChartBar />
-              </SimpleCard>
-            </div>
+
+          <div class="column">
+            <SimpleCard title="Recovered">
+              <h1 class="is-pulled-left">
+                <ICountUp
+                  :delay="1000"
+                  :endVal="resultPh.latest_data.recovered"
+                  :options="countOptions"
+                />
+              </h1>
+              <p
+                class="has-text-green is-pulled-right"
+                style="margin-top: 14px;"
+              >( {{ resultPh.latest_data.calculated.recovery_rate.toFixed(2) }}% recovery rate)</p>
+              <div class="is-clearfix"></div>
+              <p v-if="resultPh.today.recovered" class="has-text-green">
+                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
+                {{ resultPh.today.recovered.toLocaleString() }} as of today
+              </p>
+              <p v-else class="has-text-green">
+                <b-icon icon="arrow-right" size="is-small"></b-icon>0 as of today
+              </p>
+            </SimpleCard>
           </div>
-          <regionalCases />
+        </div>
+
+        <div class="columns is-variable is-3">
+          <div class="column">
+            <SimpleCard title="Cases per Day">
+              <div class="is-spacer-sm"></div>
+              <chart />
+            </SimpleCard>
+          </div>
+        </div>
+
+        <div class="columns is-hidden-mobile">
+          <div class="column">
+            <regionalCases />
+          </div>
         </div>
       </div>
-    </section>
-  </div>
+      <div class="column">
+        <div class="is-spacer-sm"></div>
+        <SimpleCard>
+          <ul class>
+            <li class="has-text-grey flex">
+              <div>Critical</div>
+              <div class="has-text-black has-text-weight-bold">
+                <ICountUp :delay="1000" :endVal="others.critical" :options="countOptions" />
+              </div>
+            </li>
+            <li class="has-text-grey flex">
+              <div>Deaths / 1M</div>
+              <div class="has-text-black has-text-weight-bold">
+                <ICountUp
+                  :delay="1000"
+                  :endVal="others.deathsPerOneMillion"
+                  :options="countOptions"
+                />
+              </div>
+            </li>
+            <li class="has-text-grey flex">
+              <div>Total tested</div>
+              <div class="has-text-black has-text-weight-bold">
+                <ICountUp :delay="1000" :endVal="others.tests" :options="countOptions" />
+              </div>
+            </li>
+            <li class="has-text-grey flex">
+              <div>Tests / 1M</div>
+              <div class="has-text-black has-text-weight-bold">
+                <ICountUp
+                  :delay="1000"
+                  :endVal="others.testsPerOneMillion"
+                  :options="countOptions"
+                />
+              </div>
+            </li>
+          </ul>
+        </SimpleCard>
+        <div class="is-spacer-xs"></div>
+        <SimpleCard title="Cases by Gender">
+          <div class="is-spacer-sm"></div>
+          <ChartPie />
+        </SimpleCard>
+        <div class="is-spacer-xs"></div>
+        <SimpleCard title="Cases by Age Group">
+          <div class="is-spacer-sm"></div>
+          <ChartBar />
+        </SimpleCard>
+        <div class="is-spacer-xs"></div>
+        <SimpleCard title="Worldwide">
+          <div class="is-spacer-sm"></div>
+          <ul class>
+            <li class="has-text-grey flex">
+              <div>Confirmed</div>
+              <div class="has-text-black has-text-weight-bold">
+                <ICountUp :delay="1000" :endVal="resultGlobal.confirmed" :options="countOptions" />
+              </div>
+            </li>
+            <li class="has-text-grey flex">
+              <div>Deaths</div>
+              <div class="has-text-black has-text-weight-bold">
+                <ICountUp :delay="1000" :endVal="resultGlobal.deaths" :options="countOptions" />
+              </div>
+            </li>
+            <li class="has-text-grey flex">
+              <div>Recovered</div>
+              <div class="has-text-black has-text-weight-bold">
+                <ICountUp :delay="1000" :endVal="resultGlobal.recovered" :options="countOptions" />
+              </div>
+            </li>
+          </ul>
+        </SimpleCard>
+      </div>
+      <div class="column is-hidden-desktop">
+        <regionalCases />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>

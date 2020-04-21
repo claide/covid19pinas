@@ -7,9 +7,13 @@
       :width="width"
       :height="height"
     />
-    <small class="has-text-body">
+    <br />
+    <small class="has-text-grey">
       Source:
-      <a href="https://www.doh.gov.ph/covid-19/case-tracker">DOH Philippines</a>
+      <a
+        class="has-text-grey"
+        href="https://www.doh.gov.ph/covid-19/case-tracker"
+      >DOH Philippines</a>
     </small>
   </div>
 </template>
@@ -48,7 +52,8 @@ export default {
           ]
         },
         maintainAspectRatio: false,
-        responsive: true
+        responsive: true,
+        barRoundness: 1
       },
       height: 200,
       width: 200
@@ -103,12 +108,10 @@ export default {
         labels: ['<19', '20-29', '30-39', '40-49', '50-59', '60-69', '70+'],
         datasets: [
           {
-            barPercentage: 0.5,
+            barPercentage: 0.7,
             categoryPercentage: 1.0,
             type: 'horizontalBar',
-            backgroundColor: '#FEBC2C',
-            outerGlowWidth: 2,
-            outerGlowColor: '#FEBC2C',
+            backgroundColor: '#db713b',
             data: [
               group1.length,
               group2.length,
