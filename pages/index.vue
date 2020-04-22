@@ -70,11 +70,7 @@
           <div class="column">
             <SimpleCard title="Confirmed">
               <h1 class="is-pulled-left">
-                <ICountUp
-                  :delay="1000"
-                  :endVal="resultPh.latest_data.confirmed"
-                  :options="countOptions"
-                />
+                <ICountUp :delay="1000" :endVal="others.cases" :options="countOptions" />
               </h1>
               <p
                 class="has-text-primary is-pulled-right"
@@ -91,11 +87,7 @@
           <div class="column">
             <SimpleCard title="Deaths">
               <h1 class="is-pulled-left">
-                <ICountUp
-                  :delay="1000"
-                  :endVal="resultPh.latest_data.deaths"
-                  :options="countOptions"
-                />
+                <ICountUp :delay="1000" :endVal="others.deaths" :options="countOptions" />
               </h1>
               <p
                 class="has-text-orange is-pulled-right"
@@ -112,11 +104,7 @@
           <div class="column">
             <SimpleCard title="Recovered">
               <h1 class="is-pulled-left">
-                <ICountUp
-                  :delay="1000"
-                  :endVal="resultPh.latest_data.recovered"
-                  :options="countOptions"
-                />
+                <ICountUp :delay="1000" :endVal="others.recovered" :options="countOptions" />
               </h1>
               <p
                 class="has-text-green is-pulled-right"
@@ -154,9 +142,9 @@
         <SimpleCard>
           <ul class>
             <li class="has-text-grey flex">
-              <div>Critical</div>
+              <div>Active Cases</div>
               <div class="has-text-black has-text-weight-bold">
-                <ICountUp :delay="1000" :endVal="others.critical" :options="countOptions" />
+                <ICountUp :delay="1000" :endVal="others.active" :options="countOptions" />
               </div>
             </li>
             <li class="has-text-grey flex">
@@ -170,7 +158,7 @@
               </div>
             </li>
             <li class="has-text-grey flex">
-              <div>Total tested</div>
+              <div>Total tests</div>
               <div class="has-text-black has-text-weight-bold">
                 <ICountUp :delay="1000" :endVal="others.tests" :options="countOptions" />
               </div>
@@ -230,7 +218,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import Card from '~/components/Card'
 import SimpleCard from '~/components/SimpleCard'
 import Chart from '~/components/Chart'
@@ -274,11 +262,11 @@ export default {
       }
     }
   },
-  async asyncData({ query, error }) {
+  async asyncData({ $axios, query, errors }) {
     let [totalGlobal, infoPh, othersInfo] = await Promise.all([
-      axios.get(`https://corona-api.com/timeline`),
-      axios.get(`https://corona-api.com/countries/ph`),
-      axios.get(`https://corona.lmao.ninja/v2/countries/ph`)
+      $axios.get(`https://corona-api.com/timeline`),
+      $axios.get(`https://corona-api.com/countries/ph`),
+      $axios.get('/api-ninja/countries/ph')
     ])
     return {
       resultGlobal: totalGlobal.data.data[0],

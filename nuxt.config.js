@@ -99,6 +99,7 @@ export default {
     '@nuxtjs/style-resources',
     'nuxt-leaflet',
     '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
     '@nuxtjs/proxy',
     [
       '@nuxtjs/firebase',
@@ -125,6 +126,17 @@ export default {
     }],
   ],
 
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api-ninja/': {
+      target: 'https://corona.lmao.ninja/v2',
+      pathRewrite: { '^/api-ninja/': '' },
+      changeOrigin: true
+    }
+  },
+
   env: {
     apiKey: process.env.API_KEY,
     authDomain: process.env.AUTH_DOMAIN,
@@ -137,15 +149,6 @@ export default {
     databaseSecret: process.env.DATABASE_SECRET,
     key: process.env.GMAP_KEY,
   },
-
-  // axios: {
-  //   proxy: true
-  // },
-
-  // proxy: {
-  //   target: 'https://en.wikipedia.org/',
-  //   changeOrigin: true
-  // },
 
   /*
   ** Build configuration
