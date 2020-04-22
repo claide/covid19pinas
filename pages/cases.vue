@@ -5,9 +5,27 @@
         <p class="card-title">COVID19 cases in Philippines</p>
         <div class="is-spacer-sm"></div>
         <div class="is-spacer-sm"></div>
+
+        <div class="columns">
+          <b-field class="column is-4">
+            <b-input
+              placeholder="Search by Region"
+              type="search"
+              icon="magnify"
+              v-model="queryItem"
+            ></b-input>
+          </b-field>
+        </div>
+
+        <!-- New table -->
+        <!-- <table class="table">
+
+        </table>-->
+        <!-- End new table -->
+
         <!-- Begin table -->
         <b-table
-          :data="caseReports"
+          :data="filteredItems"
           :loading="isLoading"
           :paginated="true"
           backend-pagination
@@ -64,6 +82,7 @@ export default {
   data() {
     return {
       caseReports: [],
+      queryItem: '',
       total: 0,
       page: 1,
       perPage: 20,
@@ -72,6 +91,20 @@ export default {
   },
   mounted() {
     this.loadFromDb()
+  },
+  computed: {
+    filteredItems() {
+      if (this.queryItem) {
+        return this.caseReports.filter(item => {
+          return this.queryItem
+            .toLowerCase()
+            .split(' ')
+            .every(i => item.RegionRes.toLowerCase().includes(i))
+        })
+      } else {
+        return this.caseReports
+      }
+    }
   },
   methods: {
     async loadFromDb() {
