@@ -17,12 +17,6 @@
           </b-field>
         </div>
 
-        <!-- New table -->
-        <!-- <table class="table">
-
-        </table>-->
-        <!-- End new table -->
-
         <!-- Begin table -->
         <b-table
           :data="filteredItems"

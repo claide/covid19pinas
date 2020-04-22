@@ -15,7 +15,10 @@
           <b-table-column field="deaths" label="Total deaths">{{ props.row.deaths }}</b-table-column>
           <b-table-column field="recovered" label="Total recovered">{{ props.row.recovered }}</b-table-column>
         </template>
-        <template slot="footer">
+      </b-table>
+      <div class="is-spacer-sm"></div>
+      <div class="columns">
+        <div class="column">
           <small class="has-text-grey">
             Source:
             <a
@@ -23,8 +26,13 @@
               class="has-text-grey"
             >Department of Health Philippines</a>
           </small>
-        </template>
-      </b-table>
+        </div>
+        <div class="column has-text-right-desktop">
+          <small>
+            <router-link to="/cases" class="is-small">View all cases</router-link>
+          </small>
+        </div>
+      </div>
     </div>
   </div>
 </template>

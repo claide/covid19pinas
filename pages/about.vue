@@ -34,16 +34,9 @@
             <li>
               <a
                 class="has-text-primary"
-                href="https://github.com/novelcovid/api"
+                href="https://corona.lmao.ninja/"
                 target="_blank"
-              >NovelCOVID 19 API</a>
-            </li>
-            <li>
-              <a
-                class="has-text-primary"
-                href="https://github.com/sorxrob/coronavirus-ph-api"
-                target="_blank"
-              >Coronavirus Ph API</a>
+              >Novel COVID API</a>
             </li>
             <li>
               <a class="has-text-primary" href="http://newsapi.org" target="_blank">News API</a>
