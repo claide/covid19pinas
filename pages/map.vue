@@ -12,7 +12,9 @@
         >
           <GMapMarker
             v-for="region in regions"
+            :key="region.name"
             :position="{lat: region.position.lat, lng: region.position.lng}"
+            :options="{icon: pin}"
             @click="currentLocation = region"
           >
             <GMapInfoWindow>
@@ -56,6 +58,7 @@ export default {
       currentLocation: {},
       mapCenter: { lat: 11.9934097, lng: 121.5256785 },
       regions: [],
+      pin: '/marker.png',
       mapStyle: [
         {
           featureType: 'administrative',
