@@ -65,7 +65,6 @@
       <div class="is-spacer"></div>
 
       <div class="column is-9">
-        <div class="is-spacer-sm"></div>
         <div class="columns is-variable is-3">
           <div class="column">
             <SimpleCard title="Confirmed">
@@ -138,7 +137,6 @@
         </div>
       </div>
       <div class="column">
-        <div class="is-spacer-sm"></div>
         <SimpleCard>
           <ul class>
             <li class="has-text-grey flex">
