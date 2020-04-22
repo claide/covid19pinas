@@ -10,6 +10,10 @@ html {
 
 body {
   margin: 0 0 100px;
+
+  &.has-navbar-fixed-top {
+    padding-top: 2.65rem;
+  }
 }
 
 .footer {
@@ -104,6 +108,12 @@ a {
   }
 }
 
+.section {
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
 .card {
   background-color: $white;
   color: $grey;
@@ -123,6 +133,10 @@ a {
   .card-content {
     color: $grey;
     padding: 2em;
+
+    @media (max-width: 768px) {
+      padding: 1.5em;
+    }
   }
 
   .content {
@@ -177,6 +191,12 @@ a {
 
   h1, h2, h3, h4 {
     color: $white;
+  }
+
+  h2 {
+    @media (max-width: 768px) {
+      font-size: 1.5em;
+    }
   }
 
   &.has-text-grey {
