@@ -29,11 +29,11 @@
             <b-table-column field="ProvCityRes" label="Province">
               <span v-html="props.row.ProvCityRes"></span>
             </b-table-column>
-            <b-table-column
-              field="RemovalType"
-              label="Status"
-              :class="statType(props.row.RemovalType)"
-            >{{ ((props.row.RemovalType.length > 0) ? props.row.RemovalType : '-') }}</b-table-column>
+            <b-table-column field="RemovalType" label="Status">
+              <b-tag
+                :type="statType(props.row.RemovalType)"
+              >{{ ((props.row.RemovalType.length > 0) ? props.row.RemovalType : '-') }}</b-tag>
+            </b-table-column>
           </template>
           <template slot="bottom-left">
             <small class="has-text-grey">
@@ -104,9 +104,9 @@ export default {
     },
     statType(string) {
       if (string === 'Recovered') {
-        return 'has-text-green'
+        return 'is-success'
       } else if (string === 'Died') {
-        return 'has-text-red'
+        return 'is-danger'
       }
     }
   }
