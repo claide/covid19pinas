@@ -75,9 +75,6 @@ export default {
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
-              outerGlowWidth: 2,
-              outerGlowColor: '#713bdb',
-              // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_confirmed)
                 .filter(Number)
@@ -91,9 +88,6 @@ export default {
               borderWidth: 2,
               pointHoverBorderWidth: 1,
               pointHoverRadius: 8,
-              outerGlowWidth: 2,
-              outerGlowColor: '#db713b',
-              // showLine: false,
               data: responseData
                 .map(timeline => timeline.new_deaths)
                 .filter(Number)
@@ -105,8 +99,6 @@ export default {
               pointRadius: 0,
               fill: false,
               borderWidth: 2,
-              outerGlowWidth: 2,
-              outerGlowColor: '#3bdb71',
               data: responseData
                 .map(timeline => timeline.new_recovered)
                 .filter(Number)
