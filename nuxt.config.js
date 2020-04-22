@@ -126,16 +126,16 @@ export default {
     }],
   ],
 
-  axios: {
-    proxy: true
-  },
-  proxy: {
-    '/api-ninja/': {
-      target: 'https://corona.lmao.ninja/v2',
-      pathRewrite: { '^/api-ninja/': '' },
-      changeOrigin: true
-    }
-  },
+  // axios: {
+  //   proxy: true
+  // },
+  // proxy: {
+  //   '/api-ninja/': {
+  //     target: 'https://corona.lmao.ninja/v2',
+  //     pathRewrite: { '^/api-ninja/': '' },
+  //     changeOrigin: true
+  //   }
+  // },
 
   env: {
     apiKey: process.env.API_KEY,

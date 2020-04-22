@@ -5,63 +5,6 @@
       <p>Last updated : {{ resultPh.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
     </div>
     <div class="columns">
-      <!-- <div class="column is-3-desktop">
-        <div class="content">
-          <h2 class="has-text-white">Worldwide Status</h2>
-          <p>Last updated : {{ resultGlobal.updated_at | moment("dddd, MMMM Do YYYY hh:mm A") }}</p>
-        </div>
-        <div class="is-spacer-sm"></div>
-        <SimpleCard title="Coronavirus Cases">
-          <div class="flex">
-            <div class="flex-item">
-              <h1>
-                <ICountUp :delay="1000" :endVal="resultGlobal.confirmed" :options="countOptions" />
-              </h1>
-              <p class="has-text-red">
-                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                {{ resultGlobal.new_confirmed.toLocaleString() }} as of today
-              </p>
-            </div>
-            <div class="flex-item has-text-grey">
-              <b-icon icon="hospital" size="is-large"></b-icon>
-            </div>
-          </div>
-        </SimpleCard>
-        <div class="is-spacer-sm"></div>
-        <SimpleCard title="Deaths">
-          <div class="flex">
-            <div class="flex-item">
-              <h1>
-                <ICountUp :delay="1000" :endVal="resultGlobal.deaths" :options="countOptions" />
-              </h1>
-              <p class="has-text-red">
-                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                {{ resultGlobal.new_deaths.toLocaleString() }} as of today
-              </p>
-            </div>
-            <div class="flex-item has-text-grey">
-              <b-icon icon="skull" size="is-large"></b-icon>
-            </div>
-          </div>
-        </SimpleCard>
-        <div class="is-spacer-sm"></div>
-        <SimpleCard title="Recovered">
-          <div class="flex">
-            <div class="flex-item">
-              <h1>
-                <ICountUp :delay="1000" :endVal="resultGlobal.recovered" :options="countOptions" />
-              </h1>
-              <p class="has-text-green">
-                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                {{ resultGlobal.new_recovered.toLocaleString() }} as of today
-              </p>
-            </div>
-            <div class="flex-item has-text-grey">
-              <b-icon icon="cards-heart" size="is-large"></b-icon>
-            </div>
-          </div>
-        </SimpleCard>
-      </div>-->
       <div class="is-spacer"></div>
 
       <div class="column is-9">
@@ -216,7 +159,7 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 import Card from '~/components/Card'
 import SimpleCard from '~/components/SimpleCard'
 import Chart from '~/components/Chart'
@@ -260,11 +203,17 @@ export default {
       }
     }
   },
-  async asyncData({ $axios, query, errors }) {
+  async asyncData({ query, errors }) {
+    // let [totalGlobal, infoPh, othersInfo] = await Promise.all([
+    //   $axios.get(`https://corona-api.com/timeline`),
+    //   $axios.get(`https://corona-api.com/countries/ph`),
+    //   $axios.get('/api-ninja/countries/ph')
+    // ])
+
     let [totalGlobal, infoPh, othersInfo] = await Promise.all([
-      $axios.get(`https://corona-api.com/timeline`),
-      $axios.get(`https://corona-api.com/countries/ph`),
-      $axios.get('/api-ninja/countries/ph')
+      axios.get(`https://corona-api.com/timeline`),
+      axios.get(`https://corona-api.com/countries/ph`),
+      axios.get(`https://corona.lmao.ninja/v2/countries/ph`)
     ])
     return {
       resultGlobal: totalGlobal.data.data[0],
