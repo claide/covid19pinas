@@ -2,7 +2,10 @@
   <div>
     <b-navbar wrapper-class="container" type="is-light" :fixed-top="true">
       <template slot="brand">
-        <b-navbar-item tag="router-link" to="/">COVIDPH.LIVE</b-navbar-item>
+        <b-navbar-item class="brand" tag="router-link" to="/">
+          <img src="/icon.png" alt="Covidphlive" />
+          <span>COVIDPH</span>
+        </b-navbar-item>
       </template>
       <template slot="start">
         <b-navbar-item tag="router-link" to="/">Home</b-navbar-item>
