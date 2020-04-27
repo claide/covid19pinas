@@ -144,6 +144,7 @@ export default {
 
         let ilocos = data.filter(
           item =>
+            item.RegionRes === '1' ||
             item.RegionRes === 'Ilocos' ||
             item.RegionRes === 'For Validation' ||
             item.RegionRes === 'Dagupan City' ||
@@ -163,6 +164,7 @@ export default {
         )
         let car = data.filter(
           item =>
+            item.RegionRes === 'CAR' ||
             item.RegionRes === 'Abra' ||
             item.RegionRes === 'Apayao' ||
             item.RegionRes === 'Benguet' ||
@@ -173,6 +175,7 @@ export default {
         )
         let cagayanValley = data.filter(
           item =>
+            item.RegionRes === '2' ||
             item.RegionRes === 'Batanes' ||
             item.RegionRes === 'Cagayan' ||
             item.RegionRes === 'Isabela' ||
@@ -181,6 +184,7 @@ export default {
         )
         let centralLuzon = data.filter(
           item =>
+            item.RegionRes === '3' ||
             item.RegionRes === 'Angeles City' ||
             item.RegionRes === 'Aurora' ||
             item.RegionRes === 'Bataan' ||
@@ -193,6 +197,7 @@ export default {
         )
         let calabarzon = data.filter(
           item =>
+            item.RegionRes === '4A' ||
             item.RegionRes === 'Batangas' ||
             item.RegionRes === 'Cavite' ||
             item.RegionRes === 'Laguna' ||
@@ -202,6 +207,7 @@ export default {
         )
         let mimaropa = data.filter(
           item =>
+            item.RegionRes === '4B' ||
             item.RegionRes === 'Marinduque' ||
             item.RegionRes === 'Occidental Mindoro' ||
             item.RegionRes === 'Oriental Mindoro' ||
@@ -211,6 +217,7 @@ export default {
         )
         let bicol = data.filter(
           item =>
+            item.RegionRes === '5' ||
             item.RegionRes === 'Bicol' ||
             item.RegionRes === 'Albay' ||
             item.RegionRes === 'Camarines Norte' ||
@@ -222,6 +229,7 @@ export default {
         )
         let westernVisayas = data.filter(
           item =>
+            item.RegionRes === '6' ||
             item.RegionRes === 'Western Visayas' ||
             item.RegionRes === 'Aklan' ||
             item.RegionRes === 'Antique' ||
@@ -234,6 +242,7 @@ export default {
         )
         let centralVisayas = data.filter(
           item =>
+            item.RegionRes === '7' ||
             item.RegionRes === 'Central Visayas' ||
             item.RegionRes === 'Bohol' ||
             item.RegionRes === 'Cebu' ||
@@ -245,6 +254,7 @@ export default {
         )
         let easternVisayas = data.filter(
           item =>
+            item.RegionRes === '8' ||
             item.RegionRes === 'Biliran' ||
             item.RegionRes === 'Leyte' ||
             item.RegionRes === 'Northern Samar' ||
@@ -256,6 +266,7 @@ export default {
         )
         let zamboangaPeninsula = data.filter(
           item =>
+            item.RegionRes === '9' ||
             item.RegionRes === 'Zamboanga Peninsula' ||
             item.RegionRes === 'Zamboanga City' ||
             item.RegionRes === 'Zamboanga del Norte' ||
@@ -264,6 +275,7 @@ export default {
         )
         let northernMindanao = data.filter(
           item =>
+            item.RegionRes === '10' ||
             item.RegionRes === 'Northern Mindanao' ||
             item.RegionRes === 'Bukidnon' ||
             item.RegionRes === 'Camiguin' ||
@@ -276,6 +288,7 @@ export default {
         )
         let davao = data.filter(
           item =>
+            item.RegionRes === '11' ||
             item.RegionRes === 'Compostela Valley' ||
             item.RegionRes === 'Davao City' ||
             item.RegionRes === 'Davao del Norte' ||
@@ -286,6 +299,7 @@ export default {
         )
         let soccsksargen = data.filter(
           item =>
+            item.RegionRes === '12' ||
             item.RegionRes === 'Soccsksargen' ||
             item.RegionRes === 'Cotabato (North Cotabato)' ||
             item.RegionRes === 'Cotabato City' ||
@@ -298,7 +312,9 @@ export default {
         )
         let caraga = data.filter(
           item =>
+            item.RegionRes === '13' ||
             item.RegionRes === 'Caraga' ||
+            item.RegionRes === 'CARAGA' ||
             item.RegionRes === 'Agusan del Norte' ||
             item.RegionRes === 'Agusan del Sur' ||
             item.RegionRes === 'Dinagat Islands' ||

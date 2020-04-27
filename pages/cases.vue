@@ -9,7 +9,7 @@
         <div class="columns">
           <b-field class="column is-4">
             <b-input
-              placeholder="Search by Region"
+              placeholder="Search by Region, City or Municipality"
               type="search"
               icon="magnify"
               v-model="queryItem"
@@ -38,8 +38,8 @@
             <b-table-column field="Age" label="Age" sortable>{{ props.row.Age }}</b-table-column>
             <b-table-column field="Sex" label="Gender">{{ props.row.Sex }}</b-table-column>
             <b-table-column field="RegionRes" label="Region">{{ props.row.RegionRes }}</b-table-column>
-            <b-table-column field="ProvCityRes" label="Province">
-              <span v-html="props.row.ProvCityRes"></span>
+            <b-table-column field="CityMunRes" label="Province">
+              <span v-html="props.row.CityMunRes"></span>
             </b-table-column>
             <b-table-column field="RemovalType" label="Status">
               <b-tag
@@ -93,7 +93,11 @@ export default {
           return this.queryItem
             .toLowerCase()
             .split(' ')
-            .every(i => item.RegionRes.toLowerCase().includes(i))
+            .every(
+              i =>
+                item.RegionRes.toLowerCase().includes(i) ||
+                item.CityMunRes.toLowerCase().includes(i)
+            )
         })
       } else {
         return this.caseReports
