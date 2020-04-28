@@ -34,9 +34,10 @@
         >
           <template slot-scope="props">
             <b-table-column field="CaseCode" label="Case No.">{{ props.row.CaseCode }}</b-table-column>
-            <b-table-column field="DateRepConf" label="Date confirmed">{{ props.row.DateRepConf }}</b-table-column>
             <b-table-column field="Age" label="Age" sortable>{{ props.row.Age }}</b-table-column>
             <b-table-column field="Sex" label="Gender">{{ props.row.Sex }}</b-table-column>
+            <b-table-column field="HealthStatus" label="Health status">{{ props.row.HealthStatus }}</b-table-column>
+            <b-table-column field="DateRepConf" label="Date confirmed">{{ props.row.DateRepConf }}</b-table-column>
             <b-table-column field="RegionRes" label="Region">{{ props.row.RegionRes }}</b-table-column>
             <b-table-column field="CityMunRes" label="Province">
               <span v-html="props.row.CityMunRes"></span>
