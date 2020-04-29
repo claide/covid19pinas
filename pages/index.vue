@@ -48,18 +48,18 @@
               <h1 class="is-pulled-left">
                 <ICountUp :delay="1000" :endVal="others.recovered" :options="countOptions" />
               </h1>
-              <p
-                class="has-text-green is-pulled-right"
-                style="margin-top: 14px;"
-              >( {{ resultPh.latest_data.calculated.recovery_rate.toFixed(2) }}% recovery rate)</p>
+
               <div class="is-clearfix"></div>
-              <p v-if="resultPh.today.recovered" class="has-text-green">
+              <p
+                class="has-text-green"
+              >( {{ resultPh.latest_data.calculated.recovery_rate.toFixed(2) }}% recovery rate)</p>
+              <!-- <p v-if="resultPh.today.recovered" class="has-text-green">
                 <b-icon icon="arrow-top-right" size="is-small"></b-icon>
                 {{ resultPh.today.recovered.toLocaleString() }} as of today
               </p>
               <p v-else class="has-text-green">
                 <b-icon icon="arrow-right" size="is-small"></b-icon>0 as of today
-              </p>
+              </p>-->
             </SimpleCard>
           </div>
         </div>
