@@ -22,7 +22,6 @@
           :data="filteredItems"
           :loading="isLoading"
           :paginated="true"
-          backend-pagination
           :hoverable="true"
           :total="total"
           :per-page="perPage"
@@ -36,16 +35,11 @@
             <b-table-column field="CaseCode" label="Case No.">{{ props.row.CaseCode }}</b-table-column>
             <b-table-column field="Age" label="Age" sortable>{{ props.row.Age }}</b-table-column>
             <b-table-column field="Sex" label="Gender">{{ props.row.Sex }}</b-table-column>
-            <b-table-column field="HealthStatus" label="Health status">{{ props.row.HealthStatus }}</b-table-column>
             <b-table-column field="DateRepConf" label="Date confirmed">{{ props.row.DateRepConf }}</b-table-column>
             <b-table-column field="RegionRes" label="Region">{{ props.row.RegionRes }}</b-table-column>
-            <b-table-column field="CityMunRes" label="Province">
-              <span v-html="props.row.CityMunRes"></span>
-            </b-table-column>
-            <b-table-column field="RemovalType" label="Status">
-              <b-tag
-                :type="statType(props.row.RemovalType)"
-              >{{ ((props.row.RemovalType.length > 0) ? props.row.RemovalType : '-') }}</b-tag>
+            <b-table-column field="CityMunRes" label="Province">{{ props.row.CityMunRes }}</b-table-column>
+            <b-table-column field="HealthStatus" label="Status">
+              <b-tag :type="statType(props.row.HealthStatus)">{{ props.row.HealthStatus }}</b-tag>
             </b-table-column>
           </template>
           <template slot="bottom-left">
@@ -87,6 +81,14 @@ export default {
   mounted() {
     this.loadFromDb()
   },
+  filters: {
+    capitalize: function(string) {
+      if (!string) return ''
+      var capitalFirst = string.charAt(0).toUpperCase()
+      var noCaseTail = string.slice(1, string.length)
+      return capitalFirst + noCaseTail
+    }
+  },
   computed: {
     filteredItems() {
       if (this.queryItem) {
@@ -114,16 +116,14 @@ export default {
 
         this.caseReports = []
         let currentTotal = snapshot.val().length
+
         if (currentTotal / this.perPage > 1000) {
           currentTotal = this.perPage * 1000
         }
+
         this.total = currentTotal
         let sortedCases = snapshot.val()
-        // .sort(
-        //   (a, b) =>
-        //     new Date(a.DateRepConf).getDate() -
-        //     new Date(b.DateRepConf).getDate()
-        // )
+
         this.caseReports = sortedCases
         this.isLoading = false
       } catch (error) {
@@ -131,15 +131,27 @@ export default {
       }
     },
     onPageChange(page) {
-      this.page = page
-      this.loadFromDb()
+      if (this.queryItem) {
+        this.page = page
+        this.filteredItems
+      } else {
+        this.page = page
+        this.loadFromDb()
+      }
     },
     statType(string) {
       if (string === 'Recovered') {
         return 'is-success'
       } else if (string === 'Died') {
         return 'is-danger'
+      } else if (string === 'Mild') {
+        return 'is-warning'
+      } else if (string === 'Asymptomatic') {
+        return 'is-info'
       }
+    },
+    updateResource(data) {
+      this.caseReports = data
     }
   }
 }
