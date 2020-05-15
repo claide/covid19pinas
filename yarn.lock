@@ -6280,7 +6280,7 @@ nuxt-buefy@^0.3.2:
   dependencies:
     buefy "^0.8.18"
 
-nuxt-gmaps@^1.1.9:
+nuxt-gmaps@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/nuxt-gmaps/-/nuxt-gmaps-1.2.2.tgz#8e9dd8dc8aa5d1783f9af3576bcbf9f6dba2f6d0"
   integrity sha512-t0dJRAE47p6gc2ffN+23xpUzpvgsjYiEfdiGd61PhNG9y9jmXv2EIGoBG8aSwMlJToVD7vpnn4GgcwhQhCqgHw==

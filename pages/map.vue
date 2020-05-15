@@ -9,6 +9,7 @@
           :options="{fullscreenControl: false, disableDefaultUI: true, styles: mapStyle}"
           :zoom="6"
           scaleControl="false"
+          @loaded="isMapLoaded = true"
         >
           <GMapMarker
             v-for="region in regions"
@@ -55,6 +56,7 @@ export default {
   components: { SimpleCard },
   data() {
     return {
+      isMapLoaded: false,
       currentLocation: {},
       mapCenter: { lat: 11.9934097, lng: 121.5256785 },
       regions: [],
@@ -107,14 +109,16 @@ export default {
   },
   mounted() {
     this.loadDb()
+    if (this.isMapLoaded) this.$refs.gMap.initChildren()
   },
   updated() {
-    this.$refs.gMap.initMarkers()
+    if (this.isMapLoaded) this.$refs.gMap.initChildren()
   },
   methods: {
     async loadDb() {
       const messageRef = this.$fireDb.ref('cases')
       Axios.get(messageRef.toString() + '.json').then(response => {
+        const data = response.data
         // regions
         let ncr = data.filter(
           item =>
