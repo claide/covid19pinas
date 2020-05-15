@@ -115,8 +115,6 @@ export default {
     async loadDb() {
       const messageRef = this.$fireDb.ref('cases')
       Axios.get(messageRef.toString() + '.json').then(response => {
-        const data = response.data
-
         // regions
         let ncr = data.filter(
           item =>
