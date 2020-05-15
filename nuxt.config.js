@@ -81,14 +81,13 @@ export default {
   plugins: [
     '~/plugins/vue-moment.js',
     { src: '~plugins/vue-chart.js', ssr: false },
-    { src: '~plugins/leaflet.js', ssr: false },
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
     ['@nuxtjs/google-analytics', {
-      id: 'UA-163137730-1'
+      id: 'UA-163137730-1',
     }]
   ],
   /*
@@ -97,7 +96,6 @@ export default {
   modules: [
     'nuxt-buefy',
     '@nuxtjs/style-resources',
-    'nuxt-leaflet',
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
     '@nuxtjs/proxy',

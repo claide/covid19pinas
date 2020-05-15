@@ -22,18 +22,15 @@
     "core-js": "2",
     "countup.js": "^2.0.4",
     "firebase": "^7.14.0",
-    "leaflet": "^1.6.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "nuxt-gmaps": "^1.1.9",
-    "nuxt-leaflet": "^0.0.21",
     "sass-loader": "^8.0.2",
     "vue-chartjs": "^3.5.0",
     "vue-countup-v2": "^4.0.0",
-    "vue-moment": "^4.1.0",
-    "vue2-leaflet": "^2.5.2"
+    "vue-moment": "^4.1.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
