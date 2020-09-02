@@ -53,13 +53,6 @@
               <p
                 class="has-text-green"
               >( {{ resultPh.latest_data.calculated.recovery_rate.toFixed(2) }}% recovery rate)</p>
-              <!-- <p v-if="resultPh.today.recovered" class="has-text-green">
-                <b-icon icon="arrow-top-right" size="is-small"></b-icon>
-                {{ resultPh.today.recovered.toLocaleString() }} as of today
-              </p>
-              <p v-else class="has-text-green">
-                <b-icon icon="arrow-right" size="is-small"></b-icon>0 as of today
-              </p>-->
             </SimpleCard>
           </div>
         </div>
