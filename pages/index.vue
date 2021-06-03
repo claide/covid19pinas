@@ -110,15 +110,15 @@
           </ul>
         </SimpleCard>
         <div class="is-spacer-xs"></div>
-        <SimpleCard title="Cases by Gender">
+        <!-- <SimpleCard title="Cases by Gender">
           <div class="is-spacer-sm"></div>
           <ChartPie />
-        </SimpleCard>
+        </SimpleCard> -->
         <div class="is-spacer-xs"></div>
-        <SimpleCard title="Cases by Age Group">
+        <!-- <SimpleCard title="Cases by Age Group">
           <div class="is-spacer-sm"></div>
           <ChartBar />
-        </SimpleCard>
+        </SimpleCard> -->
         <div class="is-spacer-xs"></div>
         <SimpleCard title="Worldwide">
           <div class="is-spacer-sm"></div>
@@ -144,9 +144,9 @@
           </ul>
         </SimpleCard>
       </div>
-      <div class="column is-hidden-desktop">
+      <!-- <div class="column is-hidden-desktop">
         <regionalCases />
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
@@ -159,7 +159,7 @@ import Chart from '~/components/Chart'
 import ChartPie from '~/components/ChartPie'
 import ChartBar from '~/components/ChartBar'
 import ICountUp from 'vue-countup-v2'
-import regionalCases from '@/components/CaseRegional'
+// import regionalCases from '@/components/CaseRegional'
 
 export default {
   name: 'HomePage',
@@ -182,7 +182,7 @@ export default {
     ChartPie,
     ChartBar,
     ICountUp,
-    regionalCases
+    // regionalCases
   },
   data() {
     return {
