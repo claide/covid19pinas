@@ -23,7 +23,7 @@
     "countup.js": "^2.0.4",
     "firebase": "^7.14.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "nuxt-gmaps": "^1.2.2",
